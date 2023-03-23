@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -57,8 +58,11 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(
                         height: 100,
                       ),
-                      const CustomButton(
+                       CustomButton(
                         name: 'Login',
+                        onTap: () {
+                          Get.offNamed(Routes.homePage);
+                        },
                       ),
                       const SizedBox(
                         height: 20,
