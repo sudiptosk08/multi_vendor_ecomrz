@@ -61,7 +61,7 @@ class LoginPage extends StatelessWidget {
                        CustomButton(
                         name: 'Login',
                         onTap: () {
-                          Get.offNamed(Routes.homePage);
+                          Get.offNamed(Routes.cartPage);
                         },
                       ),
                       const SizedBox(
