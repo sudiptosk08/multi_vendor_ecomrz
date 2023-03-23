@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+
+import '../../../../utils/colors/app_colors.dart';
+
+class TextFieldContainer extends StatelessWidget {
+  const TextFieldContainer({
+    super.key,
+    required this.label,
+    required this.hint,
+    this.keyboardType = TextInputType.name,
+    // required this.controller,
+    this.obscureText = false,
+    this.suffixIcon,
+    this.padding = 40,
+    // this.onValidate,
+  });
+
+  final String label;
+  final String hint;
+  final TextInputType keyboardType;
+  // final TextEditingController controller;
+  final bool obscureText;
+  final Widget? suffixIcon;
+  final double padding;
+
+  // final Function? onValidate;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: padding),
+      child: TextFormField(
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          suffixIcon: suffixIcon,
+          labelText: label,
+          //labelStyle: ,//TextStyles.lightRubik16Gray94,
+          hintText: hint,
+          //hintStyle: TextStyles.lightRubik16Gray94,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 1,
+              color: AppColors.gray94.withOpacity(0.16),
+            ),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 1,
+              color: AppColors.gray94.withOpacity(0.16),
+            ),
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+      ),
+    );
+  }
+}

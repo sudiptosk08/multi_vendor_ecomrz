@@ -16,9 +16,9 @@ TextStyle _ptSans = GoogleFonts.ptSans();
 // normal18Red3c
 
 class TextStyles {
-  static TextStyle mediumPoppins24Black24 = _poppins.copyWith(
+  static TextStyle mediumPoppins24white = _poppins.copyWith(
     fontWeight: _medium,
-    color: AppColors.black22,
+    color: AppColors.white,
     fontSize: 24,
   );
 }
