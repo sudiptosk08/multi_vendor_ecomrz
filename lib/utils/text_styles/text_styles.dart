@@ -1,6 +1,6 @@
-// All textstyles will be here
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../colors/app_colors.dart';
 
 const FontWeight _light = FontWeight.w300;
 const FontWeight _regular = FontWeight.w400;
@@ -16,9 +16,9 @@ TextStyle _ptSans = GoogleFonts.ptSans();
 // normal18Red3c
 
 class TextStyles {
-  // static TextStyle mediumPoppins24Black24 = _poppins.copyWith(
-  //   fontWeight: _medium,
-  //   color: AppColors.black22,
-  //   fontSize: 24,
-  // );
+  static TextStyle mediumPoppins24Black24 = _poppins.copyWith(
+    fontWeight: _medium,
+    color: AppColors.black22,
+    fontSize: 24,
+  );
 }
