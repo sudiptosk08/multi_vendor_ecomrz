@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/routes/routes.dart';
+import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.transparent,
+          iconTheme: const IconThemeData(color: AppColors.black22),
         ),
       ),
       initialRoute: Routes.loginPage,
