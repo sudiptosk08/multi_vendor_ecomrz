@@ -16,8 +16,7 @@ TextStyle _ptSans = GoogleFonts.ptSans();
 // normal18Red3c
 
 class TextStyles {
-
-   static TextStyle appBarText = _poppins.copyWith(
+  static TextStyle appBarText = _poppins.copyWith(
     fontWeight: FontWeight.w600,
     color: AppColors.black,
     fontSize: 18,
@@ -25,7 +24,7 @@ class TextStyles {
   static TextStyle mediumPoppins24white = _poppins.copyWith(
     fontWeight: _medium,
     color: AppColors.white,
-    fontSize: 24,
+    fontSize: 20,
   );
 
   static TextStyle bodyText1 = _poppins.copyWith(
