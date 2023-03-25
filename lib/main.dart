@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.transparent,
-          iconTheme: const IconThemeData(color: AppColors.black),
+          iconTheme: IconThemeData(color: AppColors.black),
         ),
       ),
       initialRoute: Routes.loginPage,

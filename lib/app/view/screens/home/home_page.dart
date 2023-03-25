@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_app/app/view/global_widgets/appBar/app_bar.dart';
 import 'package:ecommerce_app/app/view/global_widgets/text_field_container/text_field_container.dart';
+import 'package:ecommerce_app/routes/routes.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,22 +15,27 @@ class HomePage extends StatelessWidget {
       drawer: const Drawer(
         backgroundColor: AppColors.primary,
       ),
-      appBar: KAppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.notifications_active,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
+        child: KAppBar(
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.notifications_active,
+              ),
             ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.shopping_cart_outlined,
+            IconButton(
+              onPressed: () {
+                Get.toNamed(Routes.cartPage);
+              },
+              icon: const Icon(
+                Icons.shopping_cart_outlined,
+              ),
             ),
-          ),
-        ],
-      ) as PreferredSizeWidget,
+          ],
+        ),
+      ),
       body: ListView(
         children: [
           const SizedBox(

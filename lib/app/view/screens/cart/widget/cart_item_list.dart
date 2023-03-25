@@ -9,7 +9,7 @@ class CartItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.75 - 50,
         width: double.infinity,
         child: ListView.builder(
@@ -50,7 +50,7 @@ class CartItemList extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Container(
+                    SizedBox(
                       width: 250,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +68,7 @@ class CartItemList extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                "\৳12.99",
+                                "৳12.99",
                                 style: TextStyles.bodyText2
                                     .copyWith(color: AppColors.textgrey),
                               ),
@@ -76,7 +76,7 @@ class CartItemList extends StatelessWidget {
                                 width: 12,
                               ),
                               Text(
-                                "\৳20.12",
+                                "৳20.12",
                                 style: TextStyles.bodyText2
                                     .copyWith(color: AppColors.primary),
                               ),
@@ -87,60 +87,56 @@ class CartItemList extends StatelessWidget {
                             height: 25.5,
                             width: 95,
                             color: Colors.white,
-                            child: Container(
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  InkWell(
-                                    onTap: () {},
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: AppColors.primary,
-                                          borderRadius:
-                                              BorderRadius.circular(70),
-                                          border: Border.all(
-                                              width: 0.5, color: Colors.grey)),
-                                      width: 26,
-                                      alignment: Alignment.center,
-                                      child: const Icon(
-                                        Icons.remove,
-                                        size: 18,
-                                        color: AppColors.white,
-                                      ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  onTap: () {},
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: AppColors.primary,
+                                        borderRadius: BorderRadius.circular(70),
+                                        border: Border.all(
+                                            width: 0.5, color: Colors.grey)),
+                                    width: 26,
+                                    alignment: Alignment.center,
+                                    child: const Icon(
+                                      Icons.remove,
+                                      size: 18,
+                                      color: AppColors.white,
                                     ),
                                   ),
-                                  Container(
-                                    decoration: const BoxDecoration(
-                                      color: Colors.white,
+                                ),
+                                Container(
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                  ),
+                                  alignment: Alignment.center,
+                                  width: 37,
+                                  child: Text(
+                                    "1",
+                                    style: TextStyles.bodyText1,
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {},
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(70),
+                                      color: AppColors.primary,
+                                      border: Border.all(
+                                          width: 0.5, color: Colors.grey),
                                     ),
                                     alignment: Alignment.center,
-                                    width: 37,
-                                    child: Text(
-                                      "1",
-                                      style: TextStyles.bodyText1,
+                                    width: 26,
+                                    child: const Icon(
+                                      Icons.add,
+                                      size: 18,
+                                      color: AppColors.white,
                                     ),
                                   ),
-                                  InkWell(
-                                    onTap: () {},
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(70),
-                                        color: AppColors.primary,
-                                        border: Border.all(
-                                            width: 0.5, color: Colors.grey),
-                                      ),
-                                      alignment: Alignment.center,
-                                      width: 26,
-                                      child: const Icon(
-                                        Icons.add,
-                                        size: 18,
-                                        color: AppColors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -149,7 +145,7 @@ class CartItemList extends StatelessWidget {
                     const SizedBox(width: 3),
                     Padding(
                       padding: const EdgeInsets.only(top: 11.0),
-                      child: Container(
+                      child: SizedBox(
                         width: 25,
                         child: Column(
                           children: [

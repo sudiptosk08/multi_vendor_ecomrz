@@ -3,8 +3,6 @@ import 'package:ecommerce_app/app/view/screens/cart/widget/cart_item_list.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:ecommerce_app/utils/text_styles/text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -12,7 +10,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: KAppBar(
           checkTitle: true,
@@ -24,7 +22,7 @@ class CartPage extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            CartItemList(),
+            const CartItemList(),
             Container(
               height: 250,
               width: double.infinity,
@@ -44,12 +42,12 @@ class CartPage extends StatelessWidget {
                               .copyWith(color: AppColors.textgrey),
                         ),
                         Text(
-                          "\৳3210",
+                          "৳3210",
                           style: TextStyles.bodyText1,
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Row(
@@ -61,7 +59,7 @@ class CartPage extends StatelessWidget {
                               .copyWith(color: AppColors.textgrey),
                         ),
                         Text(
-                          "\৳100",
+                          "৳100",
                           style: TextStyles.bodyText1,
                         )
                       ],

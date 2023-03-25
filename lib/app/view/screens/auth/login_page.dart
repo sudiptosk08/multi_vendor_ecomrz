@@ -21,12 +21,12 @@ class LoginPage extends StatelessWidget {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => Helper.dissmissKeyboard(),
-          child: Container(
+          child: SizedBox(
             height: MediaQuery.of(context).size.height - 50,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Form(
@@ -58,10 +58,10 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(
                         height: 100,
                       ),
-                       CustomButton(
+                      CustomButton(
                         name: 'Login',
                         onTap: () {
-                          Get.offNamed(Routes.cartPage);
+                          Get.offNamed(Routes.homePage);
                         },
                       ),
                       const SizedBox(
@@ -69,7 +69,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () => forgotPasswordBottomSheet(context),
-                        child: Text(
+                        child: const Text(
                           'Forgot password',
                           // style: TextStyles.regularRubik14Green7F,
                         ),
@@ -84,7 +84,7 @@ class LoginPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Don\'t have an account?',
                       // style: TextStyles.regularRubik14Green7F,
                     ),
@@ -92,7 +92,7 @@ class LoginPage extends StatelessWidget {
                         onPressed: () {
                           // Get.toNamed(Routes.registrationPage);
                         },
-                        child: Text(
+                        child: const Text(
                           'Join us',
                           // style: TextStyles.regularRubik14Green7F,
                         )),
@@ -119,14 +119,14 @@ forgotPasswordBottomSheet(BuildContext context) {
           const SizedBox(
             height: 50,
           ),
-          Text(
+          const Text(
             'Forgot password',
             // style: TextStyles.mediumPoppins24Black24,
           ),
           const SizedBox(
             height: 5,
           ),
-          Text(
+          const Text(
             'Enter your email for the verification proccesss, we will send 4 digits code to your email.',
             // style: TextStyles.regularRubik14Gray94,
           ),
@@ -168,14 +168,14 @@ verificationBottomSheet(BuildContext context) {
           const SizedBox(
             height: 50,
           ),
-          Text(
+          const Text(
             'Enter 4 Digits Code',
             // style: TextStyles.mediumPoppins24Black24,
           ),
           const SizedBox(
             height: 5,
           ),
-          Text(
+          const Text(
             'Enter the 4 digits code that you received on your email.',
             // style: TextStyles.regularRubik14Gray94,
           ),
@@ -234,14 +234,14 @@ resetPasswordBottomSheet(BuildContext context) {
           const SizedBox(
             height: 50,
           ),
-          Text(
+          const Text(
             'Reset password',
             // style: TextStyles.mediumPoppins24Black24,
           ),
           const SizedBox(
             height: 5,
           ),
-          Text(
+          const Text(
             'Set the new password for your account so you can login and access all the features.',
             // style: TextStyles.regularRubik14Gray94,
           ),
