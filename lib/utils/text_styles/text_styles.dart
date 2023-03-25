@@ -16,9 +16,32 @@ TextStyle _ptSans = GoogleFonts.ptSans();
 // normal18Red3c
 
 class TextStyles {
+
+   static TextStyle appBarText = _poppins.copyWith(
+    fontWeight: FontWeight.w600,
+    color: AppColors.black,
+    fontSize: 18,
+  );
   static TextStyle mediumPoppins24white = _poppins.copyWith(
     fontWeight: _medium,
     color: AppColors.white,
     fontSize: 24,
+  );
+
+  static TextStyle bodyText1 = _poppins.copyWith(
+    fontWeight: FontWeight.w600,
+    color: AppColors.black,
+    fontSize: 15,
+  );
+
+  static TextStyle bodyText2 = _poppins.copyWith(
+    fontWeight: FontWeight.w500,
+    color: AppColors.black,
+    fontSize: 14,
+  );
+  static TextStyle bodyText3 = _poppins.copyWith(
+    fontWeight: FontWeight.w500,
+    color: AppColors.black,
+    fontSize: 13,
   );
 }

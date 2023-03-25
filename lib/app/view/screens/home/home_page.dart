@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const Drawer(
-        backgroundColor: AppColors.red51,
+        backgroundColor: AppColors.primary,
       ),
       appBar: AppBar(
         actions: [
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
             radius: 20,
             suffixIcon: Icon(
               Icons.search,
-              color: AppColors.red51,
+              color: AppColors.primary,
             ),
           ),
           const SizedBox(

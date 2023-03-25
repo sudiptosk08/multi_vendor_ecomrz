@@ -42,14 +42,14 @@ class TextFieldContainer extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,
-              color: AppColors.red51.withOpacity(0.25),
+              color: AppColors.primary.withOpacity(0.25),
             ),
             borderRadius: BorderRadius.circular(radius),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,
-              color: AppColors.red51.withOpacity(0.25),
+              color: AppColors.primary.withOpacity(0.25),
             ),
             borderRadius: BorderRadius.circular(radius),
           ),

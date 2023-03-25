@@ -15,7 +15,7 @@ class GrayHandle extends StatelessWidget {
         width: 120,
         height: 5,
         decoration: BoxDecoration(
-          color: AppColors.grayC4,
+          color: AppColors.primary,
           borderRadius: BorderRadius.circular(6),
         ),
       ),

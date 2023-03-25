@@ -4,7 +4,7 @@ import 'package:ecommerce_app/app/view/screens/auth/login_page.dart';
 import 'package:ecommerce_app/app/view/screens/home/home_page.dart';
 import 'package:get/get.dart';
 
-import '../app/view/screens/cart/widget/cart_page.dart';
+import '../app/view/screens/cart/cart_page.dart';
 
 class Routes {
   static const loginPage = '/loginPage';

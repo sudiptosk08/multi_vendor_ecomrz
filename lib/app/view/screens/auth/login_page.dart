@@ -199,8 +199,8 @@ verificationBottomSheet(BuildContext context) {
               fieldHeight: 65,
               fieldWidth: 65,
               activeFillColor: AppColors.white,
-              inactiveColor: AppColors.gray94.withOpacity(0.16),
-              selectedColor: AppColors.gray94.withOpacity(0.65),
+              inactiveColor: AppColors.background.withOpacity(0.16),
+              selectedColor: AppColors.background.withOpacity(0.65),
             ),
           ),
           const SizedBox(
