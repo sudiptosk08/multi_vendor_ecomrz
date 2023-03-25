@@ -8,11 +8,12 @@ class KAppBar extends StatelessWidget {
   final String? title;
   final bool checkTitle;
   final List<Widget>? actions;
-
+  final Widget? leading;
   const KAppBar({
     this.title,
     this.checkTitle = false,
     this.actions,
+    this.leading,
     Key? key,
   }) : super(key: key);
 
@@ -26,16 +27,7 @@ class KAppBar extends StatelessWidget {
           ? Text('$title', style: TextStyles.appBarText)
           : null,
       elevation: 0,
-      leading: InkWell(
-        onTap: () {
-          Get.back();
-        },
-        child: const Icon(
-          Icons.arrow_back_ios,
-          size: 24,
-          color: AppColors.black,
-        ),
-      ),
+      leading: leading,
       actions: actions,
     );
   }

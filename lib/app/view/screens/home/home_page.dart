@@ -3,6 +3,7 @@ import 'package:ecommerce_app/app/view/global_widgets/appBar/app_bar.dart';
 import 'package:ecommerce_app/app/view/global_widgets/text_field_container/text_field_container.dart';
 import 'package:ecommerce_app/routes/routes.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
+import 'package:ecommerce_app/utils/helper/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,94 +12,112 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: const Drawer(
-        backgroundColor: AppColors.primary,
-      ),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: KAppBar(
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.notifications_active,
+    return GestureDetector(
+      onTap: () => Helper.dissmissKeyboard(),
+      child: Scaffold(
+        drawer: const Drawer(
+          backgroundColor: AppColors.primary,
+        ),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60),
+          child: KAppBar(
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Helper.dissmissKeyboard();
+                },
+                icon: const Icon(
+                  Icons.notifications_active,
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  Helper.dissmissKeyboard();
+                  Get.toNamed(Routes.cartPage);
+                },
+                icon: const Icon(
+                  Icons.shopping_cart_outlined,
+                ),
+              ),
+            ],
+          ),
+        ),
+        body: ListView(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            const TextFieldContainer(
+              hint: 'Search',
+              radius: 20,
+              suffixIcon: Icon(
+                Icons.search,
+                color: AppColors.primary,
               ),
             ),
-            IconButton(
-              onPressed: () {
-                Get.toNamed(Routes.cartPage);
-              },
-              icon: const Icon(
-                Icons.shopping_cart_outlined,
+            const SizedBox(
+              height: 20,
+            ),
+            CarouselSlider.builder(
+              itemCount: 3,
+              options: CarouselOptions(
+                height: 200,
+                aspectRatio: 16 / 9,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 5),
+                viewportFraction: 0.8,
+              ),
+              itemBuilder: (context, index, realIndex) => Container(
+                margin: const EdgeInsets.all(10),
+                height: 200,
+                width: MediaQuery.of(context).size.width - 70,
+                color: Colors.pink[(index + 1) * 100],
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text('Popular Items'),
+                Text('See all'),
+              ],
+            ),
+            SizedBox(
+              height: 230,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (context, index) => Container(
+                  margin: const EdgeInsets.all(10),
+                  width: 170,
+                  // height: 350,
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text('Trending Items'),
+                Text('See all'),
+              ],
+            ),
+            SizedBox(
+              height: 230,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (context, index) => Container(
+                  margin: const EdgeInsets.all(10),
+                  width: 170,
+                  // height: 350,
+                  color: Colors.red,
+                ),
+              ),
+            )
           ],
         ),
-      ),
-      body: ListView(
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          const TextFieldContainer(
-            hint: 'Search',
-            radius: 20,
-            suffixIcon: Icon(
-              Icons.search,
-              color: AppColors.primary,
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          CarouselSlider.builder(
-            itemCount: 3,
-            options: CarouselOptions(
-              height: 200,
-              aspectRatio: 16 / 9,
-              initialPage: 0,
-              enableInfiniteScroll: true,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 5),
-              viewportFraction: 0.8,
-            ),
-            itemBuilder: (context, index, realIndex) => Container(
-              margin: const EdgeInsets.all(10),
-              height: 200,
-              width: MediaQuery.of(context).size.width - 70,
-              color: Colors.pink[(index + 1) * 100],
-            ),
-          ),
-          const Text('Popular Items'),
-          SizedBox(
-            height: 230,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index) => Container(
-                margin: const EdgeInsets.all(10),
-                width: 170,
-                // height: 350,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          const Text('Trending Items'),
-          SizedBox(
-            height: 230,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index) => Container(
-                margin: const EdgeInsets.all(10),
-                width: 170,
-                // height: 350,
-                color: Colors.red,
-              ),
-            ),
-          )
-        ],
       ),
     );
   }
