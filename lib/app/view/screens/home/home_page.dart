@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce_app/app/view/global_widgets/appBar/app_bar.dart';
 import 'package:ecommerce_app/app/view/global_widgets/text_field_container/text_field_container.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
       drawer: const Drawer(
         backgroundColor: AppColors.primary,
       ),
-      appBar: AppBar(
+      appBar: KAppBar(
         actions: [
           IconButton(
             onPressed: () {},
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ],
-      ),
+      ) as PreferredSizeWidget,
       body: ListView(
         children: [
           const SizedBox(
