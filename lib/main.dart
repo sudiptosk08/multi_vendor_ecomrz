@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(color: AppColors.black),
         ),
       ),
-      initialRoute: Routes.loginPage,
+      initialRoute: Routes.homeScreen,
       getPages: Routes.list,
       navigatorKey: Get.key,
     );

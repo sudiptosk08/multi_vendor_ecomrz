@@ -43,4 +43,9 @@ class TextStyles {
     color: AppColors.black,
     fontSize: 13,
   );
+  static TextStyle subTitle = _poppins.copyWith(
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+    fontSize: 16,
+  );
 }

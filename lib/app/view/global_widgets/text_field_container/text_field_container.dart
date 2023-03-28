@@ -30,6 +30,10 @@ class TextFieldContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(radius),
+        color: AppColors.white,
+      ),
       margin: EdgeInsets.symmetric(horizontal: padding),
       child: TextFormField(
         obscureText: obscureText,

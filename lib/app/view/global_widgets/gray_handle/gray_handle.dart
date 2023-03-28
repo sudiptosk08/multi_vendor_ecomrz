@@ -11,7 +11,7 @@ class GrayHandle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.only(top: 15, bottom: 15),
+        margin: const EdgeInsets.only(bottom: 15),
         width: 120,
         height: 5,
         decoration: BoxDecoration(
