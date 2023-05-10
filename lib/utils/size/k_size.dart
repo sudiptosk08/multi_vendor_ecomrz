@@ -9,12 +9,12 @@ using methods of this class.
 
 class KSize {
   static double getWidth(BuildContext context, width) {
-    double _width = (((100 / 375) * width) / 100) * context.screenWidth;
-    return _width;
+    double width0 = (((100 / 375) * width) / 100) * context.screenWidth;
+    return width0;
   }
 
   static double getHeight(BuildContext context, height) {
-    double _height = (((100 / 812) * height) / 100) * context.screenHeight;
-    return _height;
+    double height0 = (((100 / 812) * height) / 100) * context.screenHeight;
+    return height0;
   }
 }

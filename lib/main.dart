@@ -1,9 +1,8 @@
-import 'package:ecommerce_app/routes/routes.dart';
+import 'package:ecommerce_app/main_screen.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,8 +12,8 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  await GetStorage.init(); // initializing getStorage
-  runApp(const MyApp());
+  // await GetStorage.init(); // initializing getStorage
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'E-Commerce',
       theme: ThemeData(
@@ -30,12 +29,10 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.transparent,
-          iconTheme: IconThemeData(color: AppColors.black),
+          iconTheme: IconThemeData(color: KColor.black),
         ),
       ),
-      initialRoute: Routes.homeScreen,
-      getPages: Routes.list,
-      navigatorKey: Get.key,
+      home: const HomeScreen(),
     );
   }
 }

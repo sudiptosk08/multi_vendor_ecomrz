@@ -14,4 +14,11 @@ class AppAssets {
   static const String cart = 'assets/images/cart.png';
   static const String wishlist = 'assets/images/wish-list.png';
   static const String profile = 'assets/images/account.png';
+  static const String check = 'assets/images/check.png';
+  static const String notification = 'assets/images/notification.png';
+  static const String cod = 'assets/images/cod.png';
+  static const String nagad = 'assets/images/nagad.png';
+  static const String bkash = 'assets/images/bkash-logo.png';
+  static const String camera = 'assets/svg/camera.svg';
+  static const String arrowIcon = 'assets/svg/arrow.svg';
 }
