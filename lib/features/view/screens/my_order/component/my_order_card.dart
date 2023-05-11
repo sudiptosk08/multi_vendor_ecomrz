@@ -30,9 +30,9 @@ class MyOrderCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-      margin: const EdgeInsets.only(bottom: 16),
+      margin: const EdgeInsets.only(bottom: 4),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(4),
           color: KColor.white,
           border:
               Border.all(color: KColor.textgrey.withOpacity(0.4), width: 1)),

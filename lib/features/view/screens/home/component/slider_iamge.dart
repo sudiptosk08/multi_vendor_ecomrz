@@ -22,27 +22,27 @@ class _ImageSliderState extends State<ImageSlider> {
         padding: const EdgeInsets.only(left: 10, right: 10),
         height: 174,
         width: double.infinity,
-        decoration:
-            const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10))),
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(4))),
         child: Carousel(
           boxFit: BoxFit.cover,
 
           images: [
             ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                borderRadius: const BorderRadius.all(Radius.circular(4)),
                 child: Image.asset(
                   "assets/images/product5.png",
                   fit: BoxFit.cover,
                 )),
             ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              borderRadius: const BorderRadius.all(Radius.circular(4)),
               child: Image.asset(
                 "assets/images/product2.png",
                 fit: BoxFit.cover,
               ),
             ),
             ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                borderRadius: const BorderRadius.all(Radius.circular(4)),
                 child: Image.asset(
                   "assets/images/product1.png",
                   fit: BoxFit.cover,
@@ -62,7 +62,7 @@ class _ImageSliderState extends State<ImageSlider> {
           //     .toList(),
           borderRadius: true,
           dotIncreaseSize: 2,
-          radius: const Radius.circular(12),
+          radius: const Radius.circular(4),
           dotBgColor: Colors.grey.withOpacity(0.0),
           dotSize: 3,
           autoplay: true,

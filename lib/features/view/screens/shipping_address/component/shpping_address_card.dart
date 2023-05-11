@@ -59,13 +59,10 @@ class _ShippingAddressCardState extends State<ShippingAddressCard> {
         );
       },
       background: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-        margin: const EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        margin: const EdgeInsets.only(bottom: 4),
         decoration: const BoxDecoration(
           color: KColor.primary,
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(15.0),
-              bottomRight: Radius.circular(15.0)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -74,10 +71,10 @@ class _ShippingAddressCardState extends State<ShippingAddressCard> {
       ),
       child: Container(
         //padding: const EdgeInsets.all(8),
-        margin: const EdgeInsets.only(bottom: 15),
+        margin: const EdgeInsets.only(bottom: 4),
         height: 123,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(4),
             color: KColor.white,
             border:
                 Border.all(color: KColor.textgrey.withOpacity(0.4), width: 1)),
@@ -135,9 +132,8 @@ class _ShippingAddressCardState extends State<ShippingAddressCard> {
                       InkWell(
                         onTap: () {
                           setState(() {
-                             widget.isChecked = !widget.isChecked;
+                            widget.isChecked = !widget.isChecked;
                           });
-                         
                         },
                         child: Container(
                           width: 20,

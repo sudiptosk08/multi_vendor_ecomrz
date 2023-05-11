@@ -37,7 +37,7 @@ class ProductCard extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Container(
         width: KSize.getWidth(context, 161),
-        height: KSize.getHeight(context, 370),
+        height: KSize.getHeight(context, 314),
         decoration: const BoxDecoration(
           color: KColor.white,
           borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -56,7 +56,7 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AspectRatio(
-                aspectRatio: 0.79,
+                aspectRatio: 1,
                 child: Container(
                   width: KSize.getWidth(context, 161),
                   decoration: BoxDecoration(

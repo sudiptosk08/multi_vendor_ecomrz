@@ -18,22 +18,22 @@ class _MyOrderPageState extends State<MyOrderPage>
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        backgroundColor: KColor.background,
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(50),
-          child: KAppBar(
-              checkTitle: true,
-              title: 'My Orders',
-              leading: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(Icons.arrow_back_ios))),
-        ),
-        body: Column(
+    return Scaffold(
+      backgroundColor: KColor.background,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(50),
+        child: KAppBar(
+            checkTitle: true,
+            title: 'My Orders',
+            leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back_ios))),
+      ),
+      body: DefaultTabController(
+        length: 3,
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
@@ -44,76 +44,35 @@ class _MyOrderPageState extends State<MyOrderPage>
                     color: KColor.black.withOpacity(0.1),
                     thickness: 1,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                     child: TabBar(
-                      indicatorColor: KColor.transparent,
-                      isScrollable: false,
-                      onTap: (value) {
-                        setState(() {
-                          selectedIndex = value;
-                        });
-                      },
+                      indicatorColor: Colors.transparent,
+                      unselectedLabelColor: KColor.grey,
+                      labelColor: KColor.black,
+                      isScrollable: true,
+                      labelPadding: EdgeInsets.only(right: 24),
                       tabs: [
-                        Material(
-                          borderRadius: const BorderRadius.all(Radius.circular(12)),
-                          color: selectedIndex == 0
-                              ? KColor.black
-                              : KColor.transparent,
-                          child: SizedBox(
-                            width: 100,
-                            height: 35,
-                            child: Center(
-                              child: Text(
-                                "Delivered",
-                                style: TextStyles.bodyText1.copyWith(
-                                    color: selectedIndex == 0
-                                        ? KColor.white
-                                        : KColor.black),
-                              ),
-                            ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 12.0, left: 12.0),
+                          child: Tab(
+                            text: 'Delivered',
                           ),
                         ),
-                        Material(
-                          borderRadius: const BorderRadius.all(Radius.circular(12)),
-                          color: selectedIndex == 1
-                              ? KColor.black
-                              : KColor.transparent,
-                          child: SizedBox(
-                            width: 100,
-                            height: 35,
-                            child: Center(
-                              child: Text(
-                                "Processing",
-                                style: TextStyles.bodyText1.copyWith(
-                                    color: selectedIndex == 1
-                                        ? KColor.white
-                                        : KColor.black),
-                              ),
-                            ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 12.0, left: 12.0),
+                          child: Tab(
+                            text: 'Processing',
                           ),
                         ),
-                        Material(
-                          borderRadius: const BorderRadius.all(Radius.circular(12)),
-                          color: selectedIndex == 2
-                              ? KColor.black
-                              : KColor.transparent,
-                          child: SizedBox(
-                            width: 100,
-                            height: 35,
-                            child: Center(
-                              child: Text(
-                                "Canceled",
-                                style: TextStyles.bodyText1.copyWith(
-                                  color: selectedIndex == 2
-                                      ? KColor.white
-                                      : KColor.black,
-                                ),
-                              ),
-                            ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 12.0, left: 12.0),
+                          child: Tab(
+                            text: 'Canceled',
                           ),
                         ),
                       ],
+                      indicatorSize: TabBarIndicatorSize.tab,
                     ),
                   ),
                   Divider(

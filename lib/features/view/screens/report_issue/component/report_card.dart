@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/utils/helper/helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../../utils/colors/app_colors.dart';
 import '../../../../../utils/size/k_size.dart';
@@ -43,7 +44,7 @@ class _ReportViewCardState extends State<ReportViewCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: myEdgeInsets,
       child: GestureDetector(
         onTap: () {
           setState(() {
@@ -61,11 +62,12 @@ class _ReportViewCardState extends State<ReportViewCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.all(10),
+              padding: myEdgeInsets,
               decoration: BoxDecoration(
                   color: KColor.white,
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(width: 1, color: KColor.textgrey)),
+                  borderRadius: BorderRadius.circular(4),
+                  border: Border.all(
+                      width: 1, color: KColor.textgrey.withOpacity(0.4))),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

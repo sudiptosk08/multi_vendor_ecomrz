@@ -32,7 +32,7 @@ class _ShopPageState extends State<ShopPage> {
             preferredSize: Size.fromHeight(50),
             child: KAppBar(
               checkTitle: true,
-              title: 'Report Issue',
+              title: 'Shop',
               leading: IconButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -60,7 +60,9 @@ class _ShopPageState extends State<ShopPage> {
                       ),
                       const SizedBox(width: 14),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          
+                        },
                         child: Container(
                           height: 48,
                           width: 48,
@@ -69,7 +71,7 @@ class _ShopPageState extends State<ShopPage> {
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child:
-                              Center(child: Icon(Icons.filter_vintage_sharp)),
+                              const Center(child: Icon(Icons.filter_vintage_sharp)),
                         ),
                       ),
                     ],

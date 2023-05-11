@@ -27,7 +27,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(top: 5, right: 10, left: 10),
       child: TextFormField(
         validator: (value) {
           if (value == null || value.isEmpty) {
@@ -61,7 +61,9 @@ class _SearchTextFieldState extends State<SearchTextField> {
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
             borderSide: BorderSide.none,
           ),
-          fillColor: KColor.white,
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: KColor.grey.withOpacity(0.5))),
+          fillColor: KColor.transparent,
           filled: true,
           floatingLabelBehavior: FloatingLabelBehavior.always,
         ),

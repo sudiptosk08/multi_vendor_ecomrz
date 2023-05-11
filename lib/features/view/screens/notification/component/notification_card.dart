@@ -9,10 +9,12 @@ import '../../../global_component/dialog/k_confirm_dialog.dart';
 class NotificationCard extends StatefulWidget {
   final String? msg;
   final String? date;
+  final String? title;
   String? seen;
   final VoidCallback? cancel;
   final VoidCallback? delete;
   NotificationCard({
+    this.title,
     this.cancel,
     this.delete,
     this.seen,
@@ -30,11 +32,11 @@ class _NotificationCardState extends State<NotificationCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      // onTap: () {
-      //   setState(() {
-      //     // widget.seen = 0;
-      //   });
-      // },
+      onTap: () {
+        setState(() {
+          widget.seen = "0";
+        });
+      },
       child: Dismissible(
         key: UniqueKey(),
         dragStartBehavior: DragStartBehavior.start,
@@ -65,13 +67,12 @@ class _NotificationCardState extends State<NotificationCard> {
         secondaryBackground: _endToStartBackground(),
         background: _startToEndBackground(),
         child: Container(
-          margin: const EdgeInsets.all(10),
+          margin: const EdgeInsets.all(2.5),
           height: 80,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(width: 1, color: KColor.textgrey),
-            color: KColor.white,
-          ),
+              border: Border(
+                  bottom: BorderSide(
+                      color: KColor.grey.withOpacity(0.5), width: 1))),
           child: Row(
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -83,28 +84,10 @@ class _NotificationCardState extends State<NotificationCard> {
                   // fit:StackFit.expand,
                   children: [
                     CircleAvatar(
-                      radius: 25,
-                      backgroundColor: KColor.background,
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional.center,
-                      child: Image.asset(
-                        AppAssets.notification,
-                        color: KColor.primary,
-                        fit: BoxFit.contain,
-                        height: 24,
-                        width: 24,
-                      ),
-                    ),
-                    if (widget.seen.toString() == "0")
-                      Positioned(
-                        top: 7,
-                        right: 7,
-                        child: CircleAvatar(
-                          radius: 8,
-                          backgroundColor: KColor.black.withOpacity(.8),
-                        ),
-                      ),
+                        radius: 6,
+                        backgroundColor: widget.seen == "1"
+                            ? KColor.primary
+                            : KColor.grey.withOpacity(0.8)),
                   ],
                 ),
               ),
@@ -114,22 +97,24 @@ class _NotificationCardState extends State<NotificationCard> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Text(
+                      widget.title.toString(),
+                      style: TextStyles.subTitle,
+                    ),
+                    Text(
+                      widget.date.toString(),
+                      style: TextStyles.bodyText3,
+                    ),
                     Flexible(
                       flex: 2,
                       child: Text(
                         widget.msg.toString(),
-                        // style:widget.isRead ? TextStyles.bodyText1.copyWith(color: KColor.blackbg.withOpacity(0.7)):
-                        //  TextStyles.bodyText2.copyWith(color: KColor.blackbg.withOpacity(0.7)),
                         style: widget.seen.toString() == "0"
                             ? TextStyles.bodyText2
                             : TextStyles.bodyText1,
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text(
-                      widget.date.toString(),
-                      style: TextStyles.bodyText3,
-                    )
                   ],
                 ),
               ),
@@ -143,13 +128,13 @@ class _NotificationCardState extends State<NotificationCard> {
 
   Container _startToEndBackground() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-      margin: const EdgeInsets.only(top: 10, bottom: 8, left: 2, right: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 4),
+      margin: const EdgeInsets.only(top: 4, bottom: 4, left: 2, right: 2),
       decoration: const BoxDecoration(
         color: Colors.green,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(15.0),
-          bottomLeft: Radius.circular(15.0),
+          topLeft: Radius.circular(4.0),
+          bottomLeft: Radius.circular(4.0),
         ),
       ),
       child: Row(
@@ -166,18 +151,18 @@ class _NotificationCardState extends State<NotificationCard> {
 
   Container _endToStartBackground() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-      margin: const EdgeInsets.only(top: 10, bottom: 8, left: 2, right: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 4),
+      margin: const EdgeInsets.only(top: 4, bottom: 4, left: 2, right: 2),
       decoration: BoxDecoration(
         color: KColor.red,
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(15.0),
-          bottomRight: Radius.circular(15.0),
+        borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(4.0),
+          bottomRight: Radius.circular(4.0),
         ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: [Icon(Icons.delete)],
+        children: const [Icon(Icons.delete)],
       ),
     );
   }

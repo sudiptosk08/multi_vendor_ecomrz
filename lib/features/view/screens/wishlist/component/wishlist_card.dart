@@ -67,9 +67,6 @@ class _WishListCardState extends State<WishListCard> {
         margin: const EdgeInsets.only(bottom: 16),
         decoration: const BoxDecoration(
           color: KColor.primary,
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(15.0),
-              bottomRight: Radius.circular(15.0)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -80,26 +77,24 @@ class _WishListCardState extends State<WishListCard> {
         children: [
           Container(
             //padding: const EdgeInsets.all(8),
-            margin: const EdgeInsets.only(bottom: 15),
+            margin: const EdgeInsets.only(bottom: 4),
             height: 123,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
                 color: KColor.white,
                 border: Border.all(
-                    color: KColor.textgrey.withOpacity(0.4), width: 1)
-             
-                ),
+                    color: KColor.textgrey.withOpacity(0.4), width: 1)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
                   height: 120,
-                  width: context.screenWidth * 0.28,
+                  width: context.screenWidth * 0.26,
                   child: Padding(
                     padding: const EdgeInsets.all(9.0),
                     child: ClipRRect(
                       borderRadius: const BorderRadius.all(
-                        Radius.circular(9),
+                        Radius.circular(4),
                       ),
                       child: Image.asset(
                         '${widget.img}',

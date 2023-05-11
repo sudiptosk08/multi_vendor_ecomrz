@@ -45,7 +45,6 @@ class _CategorySectionState extends State<CategorySection> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
-      color: KColor.white,
       width: double.infinity,
       child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -73,9 +72,9 @@ class _CategorySectionState extends State<CategorySection> {
               ],
             ),
             Container(
-              padding: const EdgeInsets.only(top: 12),
+              padding: const EdgeInsets.only(top: 8),
               width: double.infinity,
-              height: KSize.getHeight(context, 160),
+              height: KSize.getHeight(context, 155),
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: categories.length,
@@ -96,23 +95,25 @@ class _CategorySectionState extends State<CategorySection> {
                         children: [
                           Container(
                             width: KSize.getWidth(context, 80),
-                            height: KSize.getWidth(context, 70),
+                            height: KSize.getWidth(context, 99),
                             decoration: BoxDecoration(
-                              color: KColor.background,
-                              borderRadius: BorderRadius.circular(18),
+                              color: KColor.white,
+                              borderRadius: BorderRadius.circular(4),
                             ),
-                            child: Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Image.asset(categories[index]['image']),
-                              ),
+                            child: Column(
+                              children: [
+                                Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child:
+                                        Image.asset(categories[index]['image']),
+                                  ),
+                                ),
+                                Text(categories[index]['name'],
+                                    style: TextStyles.bodyText3),
+                              ],
                             ),
                           ),
-                          const SizedBox(
-                            height: 3,
-                          ),
-                          Text(categories[index]['name'],
-                              style: TextStyles.bodyText3),
                         ],
                       ),
                     ),

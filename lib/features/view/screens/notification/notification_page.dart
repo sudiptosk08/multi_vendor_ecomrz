@@ -25,24 +25,15 @@ class _NotificationPageState extends State<NotificationPage> {
           title: 'Notification',
           leading: IconButton(
               onPressed: () {
-                // Navigator.pop(context);
+                Navigator.pop(context);
               },
               icon: const Icon(Icons.arrow_back_ios)),
         ),
       ),
       body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         child: Column(
           children: [
-            // SearchTextField(
-            //   callbackFunction: (e) {
-            //     ref.read(notificationProvider.notifier).fetchNotification();
-            //   },
-            //   controller: search,
-            //   readOnly: false,
-            //   hintText: 'Search',
-            // ),
-
             Flexible(
               child: SingleChildScrollView(
                 child: Column(
@@ -56,8 +47,9 @@ class _NotificationPageState extends State<NotificationPage> {
                           return InkWell(
                             onTap: () {},
                             child: NotificationCard(
+                              title: "OrderID: 0xFF132",
                               msg: "Your order is delivered for processing.",
-                              seen: "seen",
+                              seen: "1",
                               date: "01-04-23",
                               // seen:
                               cancel: () {

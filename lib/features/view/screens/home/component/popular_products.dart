@@ -52,7 +52,7 @@ class _PopularProductState extends State<PopularProduct> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
+      padding: const EdgeInsets.only(left: 10, right: 10),
       child: Column(children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

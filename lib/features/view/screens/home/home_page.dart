@@ -67,13 +67,16 @@ class _HomePageState extends State<HomePage> {
                 hintText: 'Search here...',
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               const ImageSlider(),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               const CategorySection(),
+              const SizedBox(
+                height: 10,
+              ),
               PopularProduct(),
               const NewArrivalsProduct(),
             ],

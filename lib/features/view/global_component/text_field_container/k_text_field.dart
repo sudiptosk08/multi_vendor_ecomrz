@@ -83,7 +83,7 @@ class _KFillNormalState extends State<KFillNormal> {
           borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide:const BorderSide(
             color: KColor.textgrey,
             width: 1.0,
           ),

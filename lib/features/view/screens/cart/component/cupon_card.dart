@@ -5,7 +5,7 @@ import '../../../../../utils/text_styles/text_styles.dart';
 import '../../../global_component/drop_down/Kdrop_down_field.dart';
 
 class CouponCodeCard extends StatelessWidget {
-  final String? title;
+  // final String? title;
   final String? hintText;
   final String? buttonText;
   final TextEditingController? controller;
@@ -14,7 +14,7 @@ class CouponCodeCard extends StatelessWidget {
 
   const CouponCodeCard({
     Key? key,
-    this.title,
+    // this.title,
     this.readOnly,
     this.hintText,
     this.buttonText,
@@ -29,7 +29,7 @@ class CouponCodeCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title!, style: TextStyles.subTitle),
+          // Text(title!, style: TextStyles.subTitle),
           const SizedBox(height: 8),
           Row(
             children: [

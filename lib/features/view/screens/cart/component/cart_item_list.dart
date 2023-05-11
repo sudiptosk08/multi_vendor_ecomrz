@@ -10,37 +10,38 @@ class CartItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: ListView.builder(
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
         scrollDirection: Axis.vertical,
         itemCount: 2,
         itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.symmetric(vertical: 3),
             child: Container(
               height: 120,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(4),
+                border: Border.all(color: KColor.textgrey.withOpacity(0.4)),
                 color: KColor.white,
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AspectRatio(
-                    aspectRatio: 1,
+                    aspectRatio: 0.9,
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       decoration: const BoxDecoration(
-                        color: Color(0xFFF5F6F9),
+                        color: KColor.greybg,
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(8),
-                          bottomLeft: Radius.circular(8),
+                          topLeft: Radius.circular(4),
+                          bottomLeft: Radius.circular(4),
                         ),
                         image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: AssetImage(AppAssets.product1)),
+                            image: AssetImage(AppAssets.dress)),
                       ),
                     ),
                   ),

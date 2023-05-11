@@ -11,15 +11,16 @@ class OrderItemCard extends StatelessWidget {
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       scrollDirection: Axis.vertical,
-      itemCount: 5,
+      itemCount: 3,
       itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(vertical: 2.3),
           child: Container(
             height: 105,
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(width: 1, color: KColor.textgrey),
+              borderRadius: BorderRadius.circular(4),
+              border:
+                  Border.all(width: 1, color: KColor.textgrey.withOpacity(0.4)),
               color: KColor.white,
             ),
             child: Row(
