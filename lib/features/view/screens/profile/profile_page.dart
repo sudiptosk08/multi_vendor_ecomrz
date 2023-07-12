@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/size/k_size.dart';
 import '../../../../utils/text_styles/text_styles.dart';
-import '../../global_component/drop_down/Kdrop_down_field.dart';
+import '../../global_component/buttons/Kdrop_down_field.dart';
 import '../../global_component/profile_card/profile_card.dart';
-import '../my_order/my_order_page.dart';
 import '../report_issue/add_report_page.dart';
 import '../shipping_address/shipping_address_page.dart';
 
@@ -48,12 +47,15 @@ class _ProfilePageState extends State<ProfilePage> {
                                 image: AssetImage(AppAssets.product1))),
                       ),
                       const Positioned(
-                        right: 10,
-                        top: 80,
+                        right: 1,
+                        top: 50,
                         child: CircleAvatar(
-                            radius: 15,
+                            radius: 14,
                             backgroundColor: KColor.black,
-                            child: Icon(Icons.edit)),
+                            child: Icon(
+                              Icons.camera_alt,
+                              size: 16,
+                            )),
                       ),
                     ],
                   ),
@@ -68,10 +70,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         Text(
                           "Sudipto Sarker",
                           style: TextStyles.headline5.copyWith(
-                            color: KColor.black38,
+                            color: KColor.black54,
                           ),
                         ),
-                        const SizedBox(height: 8),
                         Text(
                           "sudiptosarker05@gmail.com",
                           style: TextStyles.bodyText1.copyWith(
@@ -82,22 +83,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 40,
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     ProfileCard(
-                      title: 'My Order',
-                      subTitle: 'Already have 12 Order',
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const MyOrderPage()));
-                      },
-                    ),
-                    ProfileCard(
                       title: 'Shipping Address',
-                      subTitle: 'Select Your Shipping Address',
                       onPressed: () {
                         Navigator.push(
                             context,
@@ -108,17 +101,23 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     ProfileCard(
                       title: 'Report Issue',
-                      subTitle: 'Report Order Details',
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ReportIssue()));
+                                builder: (context) => const ReportIssue()));
                       },
                     ),
                     ProfileCard(
-                      title: 'Setting',
-                      subTitle: 'Update Your Profile',
+                      title: 'Settings',
+                      onPressed: () {},
+                    ),
+                    ProfileCard(
+                      title: 'About Us',
+                      onPressed: () {},
+                    ),
+                    ProfileCard(
+                      title: 'Contact Us',
                       onPressed: () {},
                     ),
                   ],
@@ -127,19 +126,18 @@ class _ProfilePageState extends State<ProfilePage> {
                   height: 30,
                 ),
                 KButton(
-                  width: KSize.getWidth(context, 170),
                   height: 40,
                   isOutlineButton: false,
-                  radius: 10,
-                  color: KColor.black,
+                  radius: 8,
+                  color: KColor.primary,
                   textStyle: TextStyles.subTitle.copyWith(
-                    color: KColor.white,
+                    color: KColor.black,
                   ),
                   onPressedCallback: () {},
                   title: "Log Out",
-                  trailingTitleIcon: Icon(
+                  trailingTitleIcon: const Icon(
                     Icons.logout,
-                    color: KColor.grey350,
+                    color: KColor.black,
                   ),
                 ),
               ],

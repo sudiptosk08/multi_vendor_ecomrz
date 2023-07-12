@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/colors/app_colors.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
 import '../../../global_component/appBar/app_bar.dart';
-import '../../../global_component/drop_down/Kdrop_down_field.dart';
+import '../../../global_component/buttons/Kdrop_down_field.dart';
 import '../../../global_component/text_field_container/k_text_field.dart';
 
 class AddShippingAddressPage extends StatefulWidget {
@@ -106,13 +106,13 @@ class AddShippingAddressPageState extends State<AddShippingAddressPage> {
           width: double.infinity,
           height: 40,
           isOutlineButton: false,
-          radius: 10,
+          radius: 8,
           color: KColor.primary,
           textStyle: TextStyles.subTitle.copyWith(
-            color: KColor.white,
+            color: KColor.black,
           ),
           onPressedCallback: () {},
-          title: "Save Address",
+          title: "Add Address",
         ),
       ),
     );
@@ -124,7 +124,7 @@ class AddShippingAddressPageState extends State<AddShippingAddressPage> {
       children: [
         Text(
           title,
-          style: TextStyles.bodyText1.copyWith(color: KColor.textgrey),
+          style: TextStyles.bodyText1.copyWith(color: KColor.black),
         ),
         const SizedBox(height: 12),
         field,

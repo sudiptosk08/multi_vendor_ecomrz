@@ -15,10 +15,10 @@ class OrderItemCard extends StatelessWidget {
       itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.symmetric(vertical: 2.3),
           child: Container(
-            height: 105,
             width: double.infinity,
+            padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(8),
               border:
                   Border.all(width: 1, color: KColor.textgrey.withOpacity(0.4)),
               color: KColor.white,
@@ -26,57 +26,45 @@ class OrderItemCard extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: 98,
-                  height: 120,
+                  width: 120,
+                  height: 90,
+                  padding: const EdgeInsets.all(2),
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(8)),
-                  child: AspectRatio(
-                    aspectRatio: 0.88,
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFF5F6F9),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            bottomLeft: Radius.circular(8)),
-                        image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                              "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/3f5a615e22184343bd10af8d008646d7_9366/ultraboost-light-running-shoes.jpg",
-                            )),
-                      ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      image: const DecorationImage(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(
+                            "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/3f5a615e22184343bd10af8d008646d7_9366/ultraboost-light-running-shoes.jpg",
+                          )),
                     ),
                   ),
                 ),
                 const SizedBox(width: 10),
                 SizedBox(
-                  width: 250,
+                  width: 190,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      RichText(
-                        maxLines: 3,
-                        text: TextSpan(
-                            text: "YunKeliu Men Blazer Coat",
-                            style: TextStyles.bodyText1),
-                      ),
-                      const SizedBox(height: 4),
+                      Text("YunKeliu Men Blazer Coat hati ghora palki ",
+                          style: TextStyles.bodyText1
+                            ..copyWith(color: KColor.black54)),
                       Row(
                         children: [
                           Row(
                             children: [
-                              Text(
-                                "Color : ",
-                                style: TextStyles.bodyText2
-                                    .copyWith(color: KColor.textgrey),
-                              ),
+                              Text("Color : ",
+                                  style: TextStyles.bodyText1
+                                      .copyWith(color: KColor.black54)),
                               const SizedBox(
-                                width: 12,
+                                width: 2,
                               ),
-                              Text("Gray", style: TextStyles.bodyText2),
+                              Text("Gray",
+                                  style: TextStyles.bodyText1
+                                      .copyWith(color: KColor.black54)),
                             ],
                           ),
                           const SizedBox(
@@ -84,37 +72,48 @@ class OrderItemCard extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text(
-                                "Size : ",
-                                style: TextStyles.bodyText2
-                                    .copyWith(color: KColor.textgrey),
-                              ),
+                              Text("Size : ",
+                                  style: TextStyles.bodyText1
+                                      .copyWith(color: KColor.black54)),
                               const SizedBox(
-                                width: 12,
+                                width: 2,
                               ),
-                              Text("L", style: TextStyles.bodyText2),
+                              Text("L",
+                                  style: TextStyles.bodyText1
+                                      .copyWith(color: KColor.black54)),
                             ],
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8),
                       Row(
                         children: [
-                          Text(
-                            "Price : ",
-                            style: TextStyles.bodyText2
-                                .copyWith(color: KColor.textgrey),
-                          ),
+                          Text("Group : ",
+                              style: TextStyles.bodyText1
+                                  .copyWith(color: KColor.black54)),
                           const SizedBox(
-                            width: 12,
+                            width: 2,
                           ),
-                          Text("1050", style: TextStyles.bodyText2),
+                          Text("Shirt",
+                              style: TextStyles.bodyText1
+                                  .copyWith(color: KColor.black54)),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text("Price : ",
+                              style: TextStyles.bodyText1
+                                  .copyWith(color: KColor.black54)),
+                          const SizedBox(
+                            width: 2,
+                          ),
+                          Text("1050",
+                              style: TextStyles.bodyText1
+                                  .copyWith(color: KColor.errorRedText)),
                         ],
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(width: 3),
               ],
             ),
           )),

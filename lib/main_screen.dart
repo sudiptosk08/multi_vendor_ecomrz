@@ -1,15 +1,18 @@
+import 'package:ecommerce_app/features/view/global_component/buttons/floatingActionButton.dart';
+import 'package:ecommerce_app/features/view/screens/my_order/my_order_page.dart';
+import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:ecommerce_app/utils/text_styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import 'features/view/global_component/drawer/drawer.dart';
 import 'features/view/screens/cart/cart_page.dart';
 import 'features/view/screens/home/home_page.dart';
 import 'features/view/screens/profile/profile_page.dart';
 import 'features/view/screens/wishlist/wishList_page.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final page;
+  const HomeScreen({super.key, required this.page});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -20,19 +23,22 @@ class _HomeScreenState extends State<HomeScreen> {
   var user;
   @override
   void initState() {
+    currentScreen = widget.page == 2 ? CartPage() : HomePage();
+    currentTab = widget.page == 2 ? 2 : 0;
     super.initState();
   }
 
+  Widget currentScreen = const HomeScreen(page: 0);
+
   int currentTab = 0;
   final List<Widget> screens = [
-     HomePage(),
+    HomePage(),
     const WishListPage(),
-    CartPage(),
+    const MyOrderPage(),
     const ProfilePage(),
   ];
   final PageStorageBucket bucket = PageStorageBucket();
 
-  Widget currentScreen =  HomePage();
   @override
   void dispose() {
     super.dispose();
@@ -44,32 +50,26 @@ class _HomeScreenState extends State<HomeScreen> {
       color: KColor.background,
       child: Scaffold(
         body: PageStorage(
-          child: currentScreen,
           bucket: bucket,
+          child: currentScreen,
         ),
-        // floatingActionButton: FloatingActionBottom(),
+        floatingActionButton: const FloatingActionBottom(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
         bottomNavigationBar: BottomAppBar(
           color: KColor.background,
           child: Container(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              height: 60,
+              height: 55,
               decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25)),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   MaterialButton(
-                    minWidth: 20,
                     onPressed: () {
                       setState(() {
-                        currentScreen =  HomePage();
+                        currentScreen = HomePage();
                         currentTab = 0;
                         // store.state.logoutUserData = null;
                       });
@@ -77,23 +77,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.home_rounded,
-                            size: 33,
-                            color:
-                                currentTab == 0 ? KColor.primary : KColor.gray),
+                        Image(
+                            image: const AssetImage(AppAssets.home),
+                            width: 30,
+                            height: 25,
+                            color: currentTab == 0
+                                ? KColor.primary
+                                : KColor.gray223),
                         Text(
                           "Home",
                           style: TextStyles.bodyText3.copyWith(
                             color: currentTab == 0
                                 ? KColor.primary
-                                : KColor.textgrey,
+                                : KColor.gray223,
                           ),
                         )
                       ],
                     ),
                   ),
                   MaterialButton(
-                    minWidth: 20,
+                    padding: const EdgeInsets.only(right: 25),
                     onPressed: () {
                       setState(() {
                         currentScreen = const WishListPage();
@@ -111,23 +114,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.favorite_rounded,
-                            size: 33,
-                            color:
-                                currentTab == 1 ? KColor.primary : KColor.gray),
+                        Image(
+                            image: const AssetImage(AppAssets.favourite),
+                            width: 30,
+                            height: 25,
+                            color: currentTab == 1
+                                ? KColor.primary
+                                : KColor.gray223),
                         Text(
                           "Wishlist",
                           style: TextStyles.bodyText3.copyWith(
                             color: currentTab == 1
                                 ? KColor.primary
-                                : KColor.textgrey,
+                                : KColor.gray223,
                           ),
                         )
                       ],
                     ),
                   ),
                   MaterialButton(
-                    minWidth: 20,
+                    padding: const EdgeInsets.only(left: 25),
                     onPressed: () {
                       setState(() {
                         // Navigator.push(
@@ -136,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         //     builder: (context) => token != null
                         //         ? CartScreen()
                         //         : LogInScreen()));
-                        currentScreen = CartPage();
+                        currentScreen = const MyOrderPage();
                         currentTab = 2;
                         // store.dispatch(LogoutUserAction("CartPage"));
                         // store.state.logoutUserData = null;
@@ -145,23 +151,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.shopping_bag,
-                            size: 33,
-                            color:
-                                currentTab == 2 ? KColor.primary : KColor.gray),
+                        Image(
+                            image: const AssetImage(AppAssets.compare),
+                            width: 30,
+                            height: 25,
+                            color: currentTab == 2
+                                ? KColor.primary
+                                : KColor.gray223),
                         Text(
-                          "Cart",
+                          "Orders",
                           style: TextStyles.bodyText3.copyWith(
                             color: currentTab == 2
                                 ? KColor.primary
-                                : KColor.textgrey,
+                                : KColor.gray223,
                           ),
                         )
                       ],
                     ),
                   ),
                   MaterialButton(
-                    minWidth: 20,
                     onPressed: () {
                       setState(() {
                         // token != null
@@ -180,16 +188,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.person_2,
-                            size: 33,
-                            color:
-                                currentTab == 3 ? KColor.primary : KColor.gray),
+                        Image(
+                            image: const AssetImage(AppAssets.profile),
+                            width: 30,
+                            height: 25,
+                            color: currentTab == 3
+                                ? KColor.primary
+                                : KColor.gray223),
                         Text(
                           "Account",
                           style: TextStyles.bodyText3.copyWith(
                             color: currentTab == 3
                                 ? KColor.primary
-                                : KColor.textgrey,
+                                : KColor.gray223,
                           ),
                         )
                       ],

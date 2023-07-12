@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/text_styles/text_styles.dart';
 import '../../global_component/appBar/app_bar.dart';
-import '../../global_component/drop_down/Kdrop_down_field.dart';
+import '../../global_component/buttons/Kdrop_down_field.dart';
 import '../checkout/checkout_page.dart';
 import 'component/add_shipping_address_page.dart';
 import 'component/shpping_address_card.dart';
@@ -93,16 +93,17 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
           width: double.infinity,
           height: 40,
           isOutlineButton: false,
-          radius: 10,
+          radius: 8,
           color: KColor.primary,
           textStyle: TextStyles.subTitle.copyWith(
-            color: KColor.white,
+            color: KColor.black,
           ),
+          textColor: KColor.black,
           onPressedCallback: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const CheckoutPage()));
           },
-          title: "Place to Order",
+          title: "Save Address",
         ),
       ),
       //floatingActionButton:

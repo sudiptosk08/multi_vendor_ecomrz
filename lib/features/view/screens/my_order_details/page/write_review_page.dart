@@ -10,7 +10,7 @@ import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.da
 import '../../../../../utils/colors/app_colors.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
 import '../../../global_component/appBar/app_bar.dart';
-import '../../../global_component/drop_down/Kdrop_down_field.dart';
+import '../../../global_component/buttons/Kdrop_down_field.dart';
 
 class WriteReview extends StatefulWidget {
   const WriteReview({Key? key}) : super(key: key);
@@ -144,15 +144,15 @@ class _WriteReviewState extends State<WriteReview> {
                   InkWell(
                     onTap: () => pickImage(ImageSource.camera),
                     child: Container(
-                      height: 35,
-                      width: 40,
+                      height: 25,
+                      width: 25,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(8),
                         color: KColor.background,
                       ),
                       child: SvgPicture.asset(
                         AppAssets.camera,
-                        color: KColor.primary,
+                        color: KColor.black54,
                       ),
                     ),
                   ),
@@ -162,10 +162,10 @@ class _WriteReviewState extends State<WriteReview> {
               SizedBox(height: context.screenHeight * 0.05),
               KButton(
                 title: 'Submit Review',
-                radius: 10,
+                radius: 8,
                 height: 40,
                 textStyle: TextStyles.bodyText1.copyWith(
-                  color: KColor.white,
+                  color: KColor.black,
                 ),
               ),
               const SizedBox(height: 30),

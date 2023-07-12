@@ -7,8 +7,8 @@ class KFillNormal extends StatefulWidget {
   final String label;
   final String hintText;
   final bool readOnly;
-   int? maxline;
-   int? minline;
+  int? maxline;
+  int? minline;
 
   KFillNormal({
     Key? key,
@@ -16,8 +16,8 @@ class KFillNormal extends StatefulWidget {
     required this.controller,
     required this.hintText,
     required this.readOnly,
-     this.maxline,
-     this.minline,
+    this.maxline,
+    this.minline,
   }) : super(key: key);
   TextEditingController controller = TextEditingController();
 
@@ -66,14 +66,14 @@ class _KFillNormalState extends State<KFillNormal> {
         hintText: widget.hintText,
         hintStyle: _focusNode.hasFocus
             ? TextStyles.bodyText2.copyWith(
-                color: KColor.textgrey,
+                color: KColor.black54,
               )
             : TextStyles.bodyText2.copyWith(
-                color: KColor.textgrey,
+                color: KColor.black54,
               ),
         labelText: widget.label,
         labelStyle: TextStyles.bodyText1.copyWith(
-          color: KColor.textgrey,
+          color: KColor.black54,
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 8.0),
         border: const OutlineInputBorder(
@@ -83,8 +83,8 @@ class _KFillNormalState extends State<KFillNormal> {
           borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide:const BorderSide(
-            color: KColor.textgrey,
+          borderSide: BorderSide(
+            color: KColor.black54,
             width: 1.0,
           ),
           borderRadius: BorderRadius.circular(5.0),

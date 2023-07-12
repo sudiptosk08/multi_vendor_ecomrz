@@ -1,5 +1,9 @@
 import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
+import 'package:ecommerce_app/utils/assets/app_assets.dart';
+import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../utils/text_styles/text_styles.dart';
 
 class ImageSlider extends StatefulWidget {
   const ImageSlider({super.key});
@@ -20,33 +24,59 @@ class _ImageSliderState extends State<ImageSlider> {
     return Container(
         key: UniqueKey(),
         padding: const EdgeInsets.only(left: 10, right: 10),
-        height: 174,
+        height: 165,
         width: double.infinity,
         decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(4))),
+            borderRadius: BorderRadius.all(Radius.circular(13))),
         child: Carousel(
           boxFit: BoxFit.cover,
 
           images: [
             ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(4)),
-                child: Image.asset(
-                  "assets/images/product5.png",
-                  fit: BoxFit.cover,
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      AppAssets.banner,
+                      width: double.infinity,
+                      height: 165,
+                      fit: BoxFit.cover,
+                    ),
+                    Positioned(
+                        top: 24,
+                        left: 40,
+                        child: Text(
+                          "Up To",
+                          style: TextStyles.headline4
+                              .copyWith(color: KColor.white),
+                        )),
+                    Positioned(
+                        top: 2,
+                        left: 40,
+                        child: Container(
+                          height: 140,
+                          width: 200,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                            image: AssetImage(
+                              AppAssets.off60,
+                            ),
+                          )),
+                        )),
+                    Positioned(
+                        bottom: 25,
+                        right: 40,
+                        child: SizedBox(
+                          width: 256,
+                          child: TextButton(
+                              style: const ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStatePropertyAll(KColor.white38)),
+                              onPressed: () {},
+                              child: const Text("Get it Now")),
+                        )),
+                  ],
                 )),
-            ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(4)),
-              child: Image.asset(
-                "assets/images/product2.png",
-                fit: BoxFit.cover,
-              ),
-            ),
-            ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(4)),
-                child: Image.asset(
-                  "assets/images/product1.png",
-                  fit: BoxFit.cover,
-                ))
           ],
           // images: store.state.mainSliderState
           //     .map<Widget>(

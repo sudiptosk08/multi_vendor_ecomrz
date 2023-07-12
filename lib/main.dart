@@ -28,11 +28,13 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           elevation: 0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: KColor.background,
           iconTheme: IconThemeData(color: KColor.black),
         ),
       ),
-      home: const HomeScreen(),
+      home: const HomeScreen(
+        page: 0,
+      ),
     );
   }
 }

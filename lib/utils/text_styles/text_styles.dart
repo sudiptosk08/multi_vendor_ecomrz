@@ -16,71 +16,71 @@ TextStyle _ptSans = GoogleFonts.ptSans();
 // normal18Red3c
 
 class TextStyles {
-  static TextStyle headline1 = _poppins.copyWith(
+  static TextStyle headline1 = _rubik.copyWith(
     fontSize: 31,
     fontWeight: FontWeight.w700,
     color: KColor.black,
   );
 
-  static TextStyle headline2 = _poppins.copyWith(
+  static TextStyle headline2 = _rubik.copyWith(
     fontSize: 24,
     fontWeight: FontWeight.w700,
     color: KColor.black,
   );
 
-  static TextStyle headline3 = _poppins.copyWith(
+  static TextStyle headline3 = _rubik.copyWith(
     fontSize: 22,
     fontWeight: FontWeight.w700,
     color: KColor.black,
   );
 
-  static TextStyle headline4 = _poppins.copyWith(
+  static TextStyle headline4 = _rubik.copyWith(
     fontSize: 19,
     fontWeight: FontWeight.w700,
     color: KColor.black,
   );
-  static TextStyle headline5 = _poppins.copyWith(
+  static TextStyle headline5 = _rubik.copyWith(
     fontSize: 18,
     fontWeight: FontWeight.w700,
     color: KColor.black,
   );
 
-  static TextStyle headline6 = _poppins.copyWith(
+  static TextStyle headline6 = _rubik.copyWith(
     fontSize: 17,
     fontWeight: FontWeight.w700,
     color: KColor.black,
   );
 
-  static TextStyle appBarText = _poppins.copyWith(
+  static TextStyle appBarText = _rubik.copyWith(
     fontWeight: FontWeight.w600,
     color: KColor.black,
     fontSize: 16,
   );
-  static TextStyle mediumPoppins24white = _poppins.copyWith(
+  static TextStyle mediumPoppins24white = _rubik.copyWith(
     fontWeight: _medium,
     color: KColor.white,
     fontSize: 18,
   );
 
-  static TextStyle bodyText1 = _poppins.copyWith(
+  static TextStyle bodyText1 = _rubik.copyWith(
     fontWeight: FontWeight.w500,
     color: KColor.black,
-    fontSize: 13,
+    fontSize: 15,
   );
 
-  static TextStyle bodyText2 = _poppins.copyWith(
+  static TextStyle bodyText2 = _rubik.copyWith(
     fontWeight: FontWeight.w500,
     color: KColor.black,
     fontSize: 12.5,
   );
-  static TextStyle bodyText3 = _poppins.copyWith(
+  static TextStyle bodyText3 = _rubik.copyWith(
     fontWeight: FontWeight.w500,
     color: KColor.black,
     fontSize: 12,
   );
-  static TextStyle subTitle = _poppins.copyWith(
+  static TextStyle subTitle = _rubik.copyWith(
     fontWeight: FontWeight.w600,
     color: KColor.black,
-    fontSize: 15,
+    fontSize: 17,
   );
 }

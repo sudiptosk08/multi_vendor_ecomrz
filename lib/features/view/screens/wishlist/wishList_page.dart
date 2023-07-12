@@ -19,19 +19,11 @@ class _WishListPageState extends State<WishListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50),
         child: KAppBar(
           checkTitle: true,
           title: "WishList",
-          leading: IconButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const HomeScreen()));
-              },
-              icon: const Icon(Icons.arrow_back_ios)),
         ),
       ),
       backgroundColor: KColor.background,
@@ -41,7 +33,7 @@ class _WishListPageState extends State<WishListPage> {
           child: Column(
             children: [
               ListView.builder(
-                physics: BouncingScrollPhysics(
+                physics: const BouncingScrollPhysics(
                     decelerationRate: ScrollDecelerationRate.fast),
                 shrinkWrap: true,
                 itemCount: 10,
@@ -50,7 +42,8 @@ class _WishListPageState extends State<WishListPage> {
                     img: AppAssets.product2,
                     productId: 1,
                     isChecked: true,
-                    productName: "Party Dress Black Collection",
+                    productName:
+                        "Party Dress Black Collection with conton mates alk",
                     group: "T-Shirt",
                     price: 1050,
                     cancel: () {

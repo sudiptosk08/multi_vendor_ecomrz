@@ -1,7 +1,9 @@
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:ecommerce_app/utils/extension/extension.dart';
+import 'package:ecommerce_app/utils/size/k_size.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
 import '../../../global_component/buttons/custom_button.dart';
 import '../../../global_component/dialog/k_confirm_dialog.dart';
@@ -70,7 +72,7 @@ class _WishListCardState extends State<WishListCard> {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [const Icon(Icons.delete)],
+          children: const [Icon(Icons.delete)],
         ),
       ),
       child: Stack(
@@ -78,9 +80,8 @@ class _WishListCardState extends State<WishListCard> {
           Container(
             //padding: const EdgeInsets.all(8),
             margin: const EdgeInsets.only(bottom: 4),
-            height: 123,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
+                borderRadius: BorderRadius.circular(8),
                 color: KColor.white,
                 border: Border.all(
                     color: KColor.textgrey.withOpacity(0.4), width: 1)),
@@ -88,10 +89,10 @@ class _WishListCardState extends State<WishListCard> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 120,
-                  width: context.screenWidth * 0.26,
+                  width: context.screenWidth * 0.35,
+                  height: context.screenHeight * 0.14,
                   child: Padding(
-                    padding: const EdgeInsets.all(9.0),
+                    padding: const EdgeInsets.all(6.0),
                     child: ClipRRect(
                       borderRadius: const BorderRadius.all(
                         Radius.circular(4),
@@ -103,58 +104,53 @@ class _WishListCardState extends State<WishListCard> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 16),
-                Flexible(
+                const SizedBox(width: 10),
+                SizedBox(
+                  width: KSize.getWidth(context, 205),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Flexible(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Flexible(
-                              child: Text(
-                                '${widget.productName}',
-                                style: TextStyles.bodyText1
-                                    .copyWith(color: KColor.black),
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              '${widget.group}',
-                              style: TextStyles.bodyText1.copyWith(
-                                  color: KColor.black.withOpacity(0.3)),
-                            )
-                          ],
-                        ),
+                      Text(
+                        '${widget.productName}',
+                        maxLines: 2,
+                        style:
+                            TextStyles.bodyText1.copyWith(color: KColor.black),
+                      ),
+                      Text(
+                        '${widget.group}',
+                        style: TextStyles.bodyText1
+                            .copyWith(color: KColor.black.withOpacity(0.3)),
+                      ),
+                      SmoothStarRating(
+                        color: KColor.primary,
+                        borderColor: KColor.primary,
+                        size: 15,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                            top: 8.0, bottom: 8.0, right: 8.0),
+                        padding: const EdgeInsets.only(bottom: 0.0, right: 8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "\$${widget.price.toString()}",
-                              style: TextStyles.subTitle
-                                  .copyWith(color: KColor.black),
+                              "৳${widget.price.toString()}",
+                              style: TextStyles.headline4
+                                  .copyWith(color: KColor.errorRedText),
                             ),
                             widget.isChecked == true
                                 ? InkWell(
                                     onTap: widget.add,
                                     child: CustomButton(
-                                      width: 100,
+                                      width: 80,
                                       height: 35,
                                       color: KColor.primary,
-                                      name: "Add to Cart",
+                                      name: "Buy Now",
                                       onTap: () {},
                                     ))
                                 : Row(
                                     children: [
                                       InkWell(
-                                        borderRadius: BorderRadius.circular(10),
+                                        borderRadius: BorderRadius.circular(8),
                                         onTap: () {
                                           setState(() {
                                             widget.quantity =
@@ -168,7 +164,7 @@ class _WishListCardState extends State<WishListCard> {
                                             border: Border.all(
                                                 color: KColor.black, width: 1),
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: const Center(
                                             child: Icon(Icons.add,
@@ -188,7 +184,7 @@ class _WishListCardState extends State<WishListCard> {
                                         ),
                                       ),
                                       InkWell(
-                                        borderRadius: BorderRadius.circular(10),
+                                        borderRadius: BorderRadius.circular(8),
                                         onTap: () {
                                           if (widget.quantity! > 1) {
                                             setState(() {
@@ -204,7 +200,7 @@ class _WishListCardState extends State<WishListCard> {
                                             border: Border.all(
                                                 color: KColor.white, width: 1),
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: const Center(
                                               child: Icon(Icons.remove,

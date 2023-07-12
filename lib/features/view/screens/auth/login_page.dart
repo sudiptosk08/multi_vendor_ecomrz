@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/features/view/screens/auth/registration_page.dart';
+import 'package:ecommerce_app/utils/text_styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../../utils/colors/app_colors.dart';
@@ -31,18 +33,20 @@ class LoginPage extends StatelessWidget {
                 Form(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const TextFieldContainer(
                         hint: 'Email',
                         label: 'example@example.com',
+                        keyboardType: TextInputType.emailAddress,
+                        suffixIcon: Icon(Icons.email),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       TextFieldContainer(
-                        hint: 'Password',
-                        label: 'Password',
+                        hint: 'password',
+                        label: 'password',
                         suffixIcon: IconButton(
                             onPressed: () {
                               value = value;
@@ -52,53 +56,52 @@ class LoginPage extends StatelessWidget {
                                 : const Icon(Icons.visibility_outlined)),
                         obscureText: value,
                       ),
-                      const SizedBox(
-                        height: 100,
-                      ),
-                      CustomButton(
-                        name: 'Login',
-                        onTap: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage()));
-                        },
-                        width: KSize.getWidth(context, 60),
-                        height: KSize.getHeight(context, 30),
-                        color: KColor.primary,
+                      TextButton(
+                        onPressed: () => forgotPasswordBottomSheet(context),
+                        child: Text(
+                          'Forgot password ! ',
+                          style: TextStyles.bodyText1
+                              .copyWith(color: KColor.black54),
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      TextButton(
-                        onPressed: () => forgotPasswordBottomSheet(context),
-                        child: const Text(
-                          'Forgot password',
-                          // style: TextStyles.regularRubik14Green7F,
-                        ),
-                      ),
                     ],
                   ),
                 ),
-
-                // const SizedBox(
-                //   height: 120,
-                // ),
+                CustomButton(
+                  name: 'Login',
+                  onTap: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                  width: KSize.getWidth(context, 180),
+                  height: KSize.getHeight(context, 45),
+                  color: KColor.primary,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Don\'t have an account?',
-                      // style: TextStyles.regularRubik14Green7F,
+                      style:
+                          TextStyles.bodyText1.copyWith(color: KColor.black54),
                     ),
                     TextButton(
-                        onPressed: () {
-                          // Get.toNamed(Routes.registrationPage);
-                        },
-                        child: const Text(
-                          'Join us',
-                          // style: TextStyles.regularRubik14Green7F,
-                        )),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignUpPage(),
+                            ));
+                      },
+                      child: Text(
+                        'Registration',
+                        style: TextStyles.bodyText1
+                            .copyWith(color: KColor.errorRedText),
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -151,8 +154,8 @@ forgotPasswordBottomSheet(BuildContext context) {
                 verificationBottomSheet(context);
               },
               name: 'Continue',
-              width: KSize.getWidth(context, 60),
-              height: KSize.getHeight(context, 30),
+              width: KSize.getWidth(context, 95),
+              height: KSize.getHeight(context, 45),
               color: KColor.primary,
             ),
           ),
@@ -201,12 +204,12 @@ verificationBottomSheet(BuildContext context) {
             // textStyle: TextStyles.boldPTSans26Green7F,
             pinTheme: PinTheme(
               shape: PinCodeFieldShape.box,
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(8),
               fieldHeight: 65,
               fieldWidth: 65,
-              activeFillColor: KColor.white,
-              inactiveColor: KColor.background.withOpacity(0.16),
-              selectedColor: KColor.background.withOpacity(0.65),
+              activeFillColor: KColor.primary,
+              inactiveColor: KColor.black54,
+              selectedColor: KColor.black54,
             ),
           ),
           const SizedBox(
@@ -219,8 +222,8 @@ verificationBottomSheet(BuildContext context) {
                 resetPasswordBottomSheet(context);
               },
               name: 'Continue',
-              width: KSize.getWidth(context, 60),
-              height: KSize.getHeight(context, 30),
+              width: KSize.getWidth(context, 100),
+              height: KSize.getHeight(context, 45),
               color: KColor.primary,
             ),
           ),

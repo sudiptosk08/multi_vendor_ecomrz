@@ -1,8 +1,8 @@
 import 'package:ecommerce_app/utils/extension/extension.dart';
+import 'package:ecommerce_app/utils/size/k_size.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/colors/app_colors.dart';
-import '../../../../utils/text_styles/text_styles.dart';
 import '../../global_component/appBar/app_bar.dart';
 import 'component/specific_order.dart';
 
@@ -20,16 +20,12 @@ class _MyOrderPageState extends State<MyOrderPage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: KColor.background,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(50),
         child: KAppBar(
-            checkTitle: true,
-            title: 'My Orders',
-            leading: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.arrow_back_ios))),
+          checkTitle: true,
+          title: 'My Orders',
+        ),
       ),
       body: DefaultTabController(
         length: 3,
@@ -37,21 +33,17 @@ class _MyOrderPageState extends State<MyOrderPage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 12),
+              width: KSize.getWidth(context, 350),
+              color: KColor.white,
               child: Column(
-                children: [
-                  Divider(
-                    color: KColor.black.withOpacity(0.1),
-                    thickness: 1,
-                  ),
-                  const SizedBox(
+                children: const [
+                  SizedBox(
                     height: 40,
                     child: TabBar(
                       indicatorColor: Colors.transparent,
                       unselectedLabelColor: KColor.grey,
                       labelColor: KColor.black,
                       isScrollable: true,
-                      labelPadding: EdgeInsets.only(right: 24),
                       tabs: [
                         Padding(
                           padding: EdgeInsets.only(right: 12.0, left: 12.0),
@@ -74,10 +66,6 @@ class _MyOrderPageState extends State<MyOrderPage>
                       ],
                       indicatorSize: TabBarIndicatorSize.tab,
                     ),
-                  ),
-                  Divider(
-                    color: KColor.black.withOpacity(0.1),
-                    thickness: 1,
                   ),
                 ],
               ),

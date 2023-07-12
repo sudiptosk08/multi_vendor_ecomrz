@@ -1,16 +1,15 @@
 import 'package:ecommerce_app/features/view/global_component/drawer/drawer.dart';
+import 'package:ecommerce_app/features/view/screens/all_categories/all_categories_page.dart';
+import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:ecommerce_app/utils/helper/helper.dart';
+import 'package:ecommerce_app/utils/size/k_size.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-
-import '../../global_component/appBar/app_bar.dart';
 import '../../global_component/text_field_container/k_search_field.dart';
-import '../../global_component/text_field_container/text_field_container.dart';
 import '../notification/notification_page.dart';
 import 'component/categories_list.dart';
-import 'component/new_arrivals_product.dart';
-import 'component/popular_products.dart';
+import 'component/popular_product.dart';
+import 'component/new&noteworthy.dart';
 import 'component/slider_iamge.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,51 +24,85 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: KColor.background,
-      drawer: SizedBox(child: KDrawer()),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: KAppBar(
-          leading: Builder(builder: (context) {
-            return IconButton(
-                icon: const Icon(
-                  Icons.menu_outlined,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: KColor.background,
+        drawer: const SizedBox(child: KDrawer()),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(50),
+          child: Builder(builder: (context) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        icon: const Image(
+                          image: AssetImage(AppAssets.menus),
+                        ),
+                        iconSize: 30,
+                        color: Colors.black,
+                        onPressed: () => Scaffold.of(context).openDrawer()),
+                    const Image(
+                      image: AssetImage(AppAssets.shopfy),
+                      width: 110,
+                      height: 120,
+                      alignment: Alignment.centerLeft,
+                    ),
+                  ],
                 ),
-                iconSize: 25,
-                color: Colors.black,
-                onPressed: () => Scaffold.of(context).openDrawer());
+                IconButton(
+                  onPressed: () {
+                    Helper.dissmissKeyboard();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => const NotificationPage())));
+                  },
+                  padding: EdgeInsets.all(12),
+                  icon: const Image(
+                    image: AssetImage(AppAssets.notification),
+                  ),
+                ),
+              ],
+            );
           }),
-          actions: [
-            IconButton(
-              onPressed: () {
-                Helper.dissmissKeyboard();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => const NotificationPage())));
-              },
-              icon: const Icon(
-                Icons.notifications_active,
-              ),
-            ),
-          ],
         ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Column(
             children: [
-              SearchTextField(
-                callbackFunction: (query) {},
-                controller: controller,
-                readOnly: false,
-                hintText: 'Search here...',
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: KSize.getWidth(context, 297),
+                    child: SearchTextField(
+                      callbackFunction: (query) {},
+                      controller: controller,
+                      readOnly: false,
+                      hintText: 'Search here...',
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => const AllCategoryPage())));
+                    },
+                    child: Container(
+                        width: KSize.getWidth(context, 67),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 14),
+                        decoration: BoxDecoration(
+                            color: KColor.primary,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Icon(Icons.category_outlined)),
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              const ImageSlider(),
               const SizedBox(
                 height: 10,
               ),
@@ -77,8 +110,15 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 10,
               ),
+              const ImageSlider(),
+              const SizedBox(
+                height: 10,
+              ),
               PopularProduct(),
               const NewArrivalsProduct(),
+              const SizedBox(
+                height: 30,
+              ),
             ],
           ),
         ),

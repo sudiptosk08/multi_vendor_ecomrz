@@ -1,8 +1,6 @@
-import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/text_styles/text_styles.dart';
-
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
@@ -30,7 +28,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             name,
-            style: TextStyles.bodyText2.copyWith(color: KColor.white),
+            style: TextStyles.bodyText1,
           ),
         ),
       ),

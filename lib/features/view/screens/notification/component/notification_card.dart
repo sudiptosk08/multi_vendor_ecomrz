@@ -76,21 +76,6 @@ class _NotificationCardState extends State<NotificationCard> {
           child: Row(
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(
-                radius: 40,
-                backgroundColor: Colors.transparent,
-                child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  // fit:StackFit.expand,
-                  children: [
-                    CircleAvatar(
-                        radius: 6,
-                        backgroundColor: widget.seen == "1"
-                            ? KColor.primary
-                            : KColor.grey.withOpacity(0.8)),
-                  ],
-                ),
-              ),
               const SizedBox(width: 16),
               Flexible(
                 child: Column(
@@ -103,7 +88,8 @@ class _NotificationCardState extends State<NotificationCard> {
                     ),
                     Text(
                       widget.date.toString(),
-                      style: TextStyles.bodyText3,
+                      style:
+                          TextStyles.bodyText3.copyWith(color: KColor.black54),
                     ),
                     Flexible(
                       flex: 2,
@@ -111,7 +97,9 @@ class _NotificationCardState extends State<NotificationCard> {
                         widget.msg.toString(),
                         style: widget.seen.toString() == "0"
                             ? TextStyles.bodyText2
-                            : TextStyles.bodyText1,
+                                .copyWith(color: KColor.black54)
+                            : TextStyles.bodyText1
+                                .copyWith(color: KColor.black54),
                       ),
                     ),
                     const SizedBox(height: 4),

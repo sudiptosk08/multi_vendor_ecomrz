@@ -3,18 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/text_styles/text_styles.dart';
+
 class ProfileCard extends StatelessWidget {
   final String? title;
-  final String? subTitle;
   final String? image;
   final VoidCallback onPressed;
 
-  const ProfileCard(
-      {this.title,
-      this.subTitle,
-      this.image,
-      required this.onPressed,
-      Key? key})
+  const ProfileCard({this.title, this.image, required this.onPressed, Key? key})
       : super(key: key);
 
   @override
@@ -23,7 +18,7 @@ class ProfileCard extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         decoration: const BoxDecoration(color: KColor.background),
-        padding: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.symmetric(vertical: 2),
         width: context.screenWidth,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -44,14 +39,8 @@ class ProfileCard extends StatelessWidget {
                           Text(
                             '$title',
                             style: TextStyles.subTitle.copyWith(
-                              color: KColor.black,
-                            ),
-                          ),
-                          Text(
-                            '$subTitle',
-                            style: TextStyles.subTitle.copyWith(
-                              color: KColor.grey350,
-                            ),
+                                color: KColor.black54,
+                                fontWeight: FontWeight.normal),
                           ),
                         ],
                       )
@@ -62,7 +51,7 @@ class ProfileCard extends StatelessWidget {
                     flex: 1,
                     child: Icon(
                       Icons.arrow_forward_ios,
-                      color: KColor.grey350,
+                      color: KColor.black54,
                     ))
               ],
             ),
@@ -70,7 +59,7 @@ class ProfileCard extends StatelessWidget {
               height: 10,
             ),
             Divider(
-              color: KColor.grey200,
+              color: KColor.white,
               thickness: 1,
             )
           ],

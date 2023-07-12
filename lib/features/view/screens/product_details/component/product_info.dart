@@ -1,8 +1,9 @@
-import 'package:ecommerce_app/features/view/screens/product_details/component/product_description.dart';
-import 'package:ecommerce_app/features/view/screens/product_details/component/product_variation.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
+import 'package:ecommerce_app/utils/extension/extension.dart';
+import 'package:ecommerce_app/utils/size/k_size.dart';
 import 'package:flutter/material.dart';
-
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
 
 class ProductInfo extends StatefulWidget {
@@ -33,218 +34,359 @@ class ProductInfo extends StatefulWidget {
 }
 
 class _ProductInfoState extends State<ProductInfo> {
-  List<String> items = ["Variations", "Descriptions", "Reviews"];
   int currentIndex = 0;
+  final _controller = PageController();
+  int selectIndex = 0;
+  int selectSize = 0;
+  bool favorite = false;
+  List<dynamic> productImageList = [
+    {
+      'url':
+          "https://media.e-valy.com/cms/products/images/74af17be-18cb-4212-a25c-a39606344b5c"
+    },
+    {
+      'url':
+          "https://media.e-valy.com/cms/products/images/c11c8b41-03db-498e-88c9-fd037e8a9ead?h=250&w=250"
+    },
+    {
+      'url':
+          "https://media.e-valy.com/cms/products/images/11461ceb-d498-4ac0-b849-08e1c7cbbc0e?h=250&w=250"
+    }
+  ];
+  List<dynamic> productSizeList = [
+    {'size': "S"},
+    {'size': "M"},
+    {'size': "L"},
+    {'size': "XL"}
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 12, right: 12, bottom: 5),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Text(
-                    "Essentials Men's Short-Sleeve Crewneck T-Shirt",
-                    style: TextStyles.headline6,
+    return Column(
+      children: [
+        Container(
+          height: KSize.getHeight(context, 380),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.grey[200],
+          ),
+          padding: const EdgeInsets.only(left: 8, right: 12, bottom: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const SizedBox(width: 8),
+              Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: context.screenWidth * 0.9,
+                      height: 250,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: KColor.white,
+                      ),
+                      padding: const EdgeInsets.all(8),
+                      child: PageView.builder(
+                          itemCount: productImageList.length,
+                          controller: _controller,
+                          itemBuilder: (ctx, position) {
+                            return Image.network(
+                              productImageList[position]['url'],
+                              fit: BoxFit.fill,
+                            );
+                          }),
+                    ),
                   ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 5, left: 6),
-                  decoration: BoxDecoration(
-                      color: KColor.white,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: KColor.textgrey, width: 1)),
-                  child: Row(
+                  Row(
                     children: [
-                      InkWell(
-                        onTap: widget.add,
-                        child:const SizedBox(
-                          height: 40,
-                          width: 45,
-                          child:  Center(
-                            child: Icon(
-                              Icons.add,
-                              size: 25,
-                              color: KColor.black,
-                            ),
-                          ),
+                      SmoothPageIndicator(
+                        controller: _controller,
+                        count: productImageList.length,
+                        onDotClicked: (index) {
+                          setState(() {
+                            selectIndex = index;
+                            _controller.animateToPage(
+                              selectIndex,
+                              duration: const Duration(seconds: 1),
+                              curve: Curves.easeInOut,
+                            );
+                          });
+                          if (index == selectIndex) {}
+                        },
+                        effect: const ExpandingDotsEffect(
+                          activeDotColor: KColor.primary,
+                          dotColor: KColor.grey,
+                          dotHeight: 4,
+                          dotWidth: 4,
+                          radius: 107,
+                          spacing: 4,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 22.0),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: KSize.getHeight(context, 350),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 12, right: 12, bottom: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: KSize.getWidth(context, 260),
                         child: Text(
-                          widget.quantity.toString(),
-                          style: TextStyles.headline6.copyWith(
-                            color: KColor.black,
-                          ),
+                          "Essentials Men's Short-Sleeve Crewneck T-Shirt",
+                          style: TextStyles.headline6,
                         ),
                       ),
-                      InkWell(
-                        // When using InkWell check the spalsh effect if its radius matches the container
-                        borderRadius: BorderRadius.circular(15),
-                        onTap: widget.remove,
-                        child:const SizedBox(
-                          height: 40,
-                          width: 45,
-                          child:  Center(
-                            child: Icon(
-                              Icons.remove,
-                              size: 25,
-                              color: KColor.black,
+                      Container(
+                        alignment: Alignment.centerRight,
+                        width: KSize.getWidth(context, 90),
+                        child: Text(
+                          "৳195.00",
+                          style: TextStyles.headline3
+                              .copyWith(color: KColor.errorRedText),
+                          textAlign: TextAlign.end,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: KSize.getWidth(context, 200),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 10.0, bottom: 19),
+                              child: IgnorePointer(
+                                  child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.star,
+                                    size: 25,
+                                    color: KColor.primary,
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "4.9 ",
+                                    style: TextStyles.bodyText1
+                                        .copyWith(color: KColor.gray223),
+                                  )
+                                ],
+                              )),
                             ),
-                          ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 10.0, bottom: 19),
+                              child: IgnorePointer(
+                                  child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.brightness_1_sharp,
+                                    size: 15,
+                                    color: KColor.primary,
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "100+ Reviews",
+                                    style: TextStyles.bodyText1
+                                        .copyWith(color: KColor.gray223),
+                                  )
+                                ],
+                              )),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(height: 2),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0, bottom: 19),
-                  child: IgnorePointer(
-                      child: Row(
-                    children: [
-                      const Icon(
-                        Icons.star,
-                        size: 25,
-                        color: KColor.yellow,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "4.9 Rating",
-                        style: TextStyles.bodyText1
-                            .copyWith(color: KColor.textgrey),
-                      )
-                    ],
-                  )),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0, bottom: 19),
-                  child: IgnorePointer(
-                      child: Row(
-                    children: [
-                      const Icon(
-                        Icons.brightness_1_sharp,
-                        size: 15,
-                        color: KColor.black,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "2.5K+ Reviews",
-                        style: TextStyles.bodyText1
-                            .copyWith(color: KColor.textgrey),
-                      )
-                    ],
-                  )),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0, bottom: 19),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.brightness_1_sharp,
-                        size: 15,
-                        color: KColor.black,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "2K Solds ",
-                        style: TextStyles.bodyText1
-                            .copyWith(color: KColor.textgrey),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: double.infinity,
-                  height: 80,
-                  child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: items.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (ctx, index) {
-                      return Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                currentIndex = index;
-                              });
-                              // if (index == 1) {
-                              //   ref
-                              //       .read(
-                              //           productRecommendationProvider
-                              //               .notifier)
-                              //       .fetchProductsRecommendation(
-                              //           widget.id.toString());
-                              // } else if (index == 2) {
-                              //   ref
-                              //       .read(reviewsProvider.notifier)
-                              //       .fetchProductReviews(widget.id);
-                              // }
-                            },
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 300),
-                              margin: const EdgeInsets.only(right: 16),
-                              width: 111,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: KColor.white,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  items[index],
-                                  style: TextStyles.bodyText1.copyWith(
-                                    color: index == currentIndex
-                                        ? KColor.black.withOpacity(0.9)
-                                        : KColor.textgrey,
+                      Container(
+                        alignment: Alignment.centerRight,
+                        width: KSize.getWidth(context, 150),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: widget.add,
+                              child: const CircleAvatar(
+                                backgroundColor: KColor.primary,
+                                child: Center(
+                                  child: Icon(
+                                    Icons.remove,
+                                    size: 25,
+                                    color: KColor.black,
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      );
-                    },
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 22.0),
+                              child: Text(
+                                widget.quantity.toString(),
+                                style: TextStyles.headline6.copyWith(
+                                  color: KColor.black,
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              // When using InkWell check the spalsh effect if its radius matches the container
+                              borderRadius: BorderRadius.circular(8),
+                              onTap: widget.remove,
+                              child: const CircleAvatar(
+                                backgroundColor: KColor.primary,
+                                child: Center(
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 25,
+                                    color: KColor.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 55,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: productImageList.length,
+                      itemBuilder: (context, int index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                selectIndex = index;
+                                _controller.animateToPage(
+                                  selectIndex,
+                                  duration: const Duration(seconds: 1),
+                                  curve: Curves.easeInOut,
+                                );
+                              });
+                            },
+                            child: Container(
+                              height: 54,
+                              width: 54,
+                              margin: const EdgeInsets.only(bottom: 5),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 2, horizontal: 2),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(
+                                      width: 2,
+                                      color: selectIndex == index
+                                          ? KColor.primary
+                                          : KColor.white)),
+                              child: Center(
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  imageUrl:
+                                      productImageList[index]['url'].toString(),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 55,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: productSizeList.length,
+                      itemBuilder: (context, int index) {
+                        return Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  selectSize = index;
+                                });
+                              },
+                              child: Container(
+                                height: 54,
+                                width: 54,
+                                margin: const EdgeInsets.only(bottom: 5),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 3, horizontal: 2),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    border: Border.all(
+                                        width: 2,
+                                        color: selectSize == index
+                                            ? KColor.primary
+                                            : KColor.white)),
+                                child: Center(
+                                  child: Text(
+                                    productSizeList[index]['size'].toString(),
+                                    style: TextStyles.headline6,
+                                  ),
+                                ),
+                              ),
+                            ));
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Description',
+                        style:
+                            TextStyles.subTitle.copyWith(color: Colors.black),
+                      ),
 
-                /// MAIN BODY
-                if (currentIndex == 0) const ProductVariation(),
-                if (currentIndex == 1)
-                  ProductDescription(id: widget.id.toString()),
-                if (currentIndex == 2)
+                      Text(
+                        "The Tech Hera is here to fulfil all of your chunky sneakers wishes. The wavy lifted midsole and suede accents level up your look while keeping you comfortable. And its durable design holds up beautifully to everyday wear—which is perfect, because you'll definitely want to wear these every day. holds up beautifully to everyday wear—which is perfect, because you'll definitely want",
+                        textAlign: TextAlign.justify,
+                        style: TextStyles.bodyText1
+                            .copyWith(color: KColor.gray223),
+                      ),
+                      Text(
+                        "The Tech Hera is here to fulfil all of your chunky sneakers wishes. The wavy lifted midsole and suede accents level up your look while keeping you comfortable. And its durable design holds up beautifully to everyday wear—which is perfect, because you'll definitely want to wear these every day. holds up beautifully to everyday wear—which is perfect, because you'll definitely want",
+                        textAlign: TextAlign.justify,
+                        style: TextStyles.bodyText1
+                            .copyWith(color: KColor.gray223),
+                      ),
+
+                      // } else ...{
+                      //   const Center(child: CupertinoActivityIndicator()),
+                      // }
+                    ],
+                  ),
                   const SizedBox(
-                    child:  Text("Review List Show here ."),
-                  )
-              ],
+                    height: 60,
+                  ),
+                ],
+              ),
             ),
-          ],
+          ),
         ),
-      ),
-    ));
+      ],
+    );
   }
 }

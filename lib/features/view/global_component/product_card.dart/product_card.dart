@@ -1,101 +1,72 @@
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
-
 import '../../../../utils/size/k_size.dart';
 import '../../../../utils/text_styles/text_styles.dart';
-import '../../screens/product_details/product_details_page.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({
+  ProductCard({
     Key? key,
-    this.width = 45,
-    this.aspectRatio = 1.02,
     required this.imagePath,
     required this.productName,
-    //required this.discount,
     required this.price,
     required this.discountPrice,
     required this.id,
     required this.ratingStar,
     required this.appDiscount,
+    required this.tap,
   }) : super(key: key);
 
-  final double width, aspectRatio;
-  //final int discount;
   final int appDiscount;
   final String imagePath;
   final String productName;
   final String price;
   final String discountPrice;
   final String id;
+  final VoidCallback? tap;
   final int ratingStar;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(5.0),
       child: Container(
-        width: KSize.getWidth(context, 161),
-        height: KSize.getHeight(context, 314),
-        decoration: const BoxDecoration(
+        width: KSize.getWidth(context, 152),
+        decoration: BoxDecoration(
           color: KColor.white,
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
         ),
         child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => ProductDetailsPage(
-                    id: int.parse(id),
-                  ),
-                ));
-          },
+          onTap: tap,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AspectRatio(
-                aspectRatio: 1,
-                child: Container(
-                  width: KSize.getWidth(context, 161),
-                  decoration: BoxDecoration(
-                      color: KColor.textgrey,
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10)),
-                      image: DecorationImage(
-                        image: AssetImage(imagePath),
-                        fit: BoxFit.fill,
-                      )),
+                aspectRatio: 1.25,
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: KColor.grey200!.withOpacity(1),
+                      borderRadius: const BorderRadius.all(Radius.circular(7)),
+                    ),
+                    child: Padding(
+                        padding: EdgeInsets.only(left: 10, right: 10, top: 8),
+                        child: Image.asset(
+                          imagePath,
+                          fit: BoxFit.fill,
+                        )),
+                  ),
                 ),
               ),
-              const SizedBox(height: 1),
               Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.only(left: 4.0, right: 4.0, top: 4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 1.5),
-                          child: SmoothStarRating(
-                            size: 14,
-                            borderColor: KColor.textgrey,
-                            color: Colors.yellow[600],
-                            allowHalfRating: false,
-                            rating: ratingStar.toDouble(),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 2),
                     Text(
                       productName,
                       maxLines: 2,
+                      textAlign: TextAlign.justify,
                       style: TextStyles.bodyText1,
                     ),
                   ],
@@ -103,38 +74,76 @@ class ProductCard extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: appDiscount > 0 ? 3.5 : 0),
-                    child: Text.rich(TextSpan(
-                        text: appDiscount > 0 ? "৳$discountPrice " : null,
-                        style: TextStyles.bodyText3.copyWith(
-                          color: KColor.primary,
-                          fontWeight: FontWeight.w600,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: appDiscount > 0 ? 3.5 : 0),
+                        child: Text.rich(TextSpan(
+                            text: appDiscount > 0 ? "৳ $discountPrice " : null,
+                            style: TextStyles.subTitle.copyWith(
+                              color: KColor.errorRedText,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            children: [
+                              appDiscount > 0
+                                  ? TextSpan(
+                                      text: " ৳ $price",
+                                      style: TextStyles.subTitle.copyWith(
+                                        color: KColor.primary,
+                                        fontWeight: FontWeight.w600,
+                                        decoration: TextDecoration.lineThrough,
+                                      ),
+                                    )
+                                  : TextSpan(
+                                      text: " ৳ $price",
+                                      style: TextStyles.subTitle.copyWith(
+                                        fontWeight: FontWeight.w600,
+                                        color: KColor.errorRedText,
+                                        letterSpacing: 0.3,
+                                      ),
+                                    )
+                            ])),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 2.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Icon(
+                              Icons.star,
+                              color: KColor.primary,
+                              size: 18,
+                            ),
+                            Text(
+                              "4.9",
+                              textAlign: TextAlign.center,
+                              style: TextStyles.subTitle.copyWith(height: 1.3),
+                            )
+                          ],
                         ),
-                        children: [
-                          appDiscount > 0
-                              ? TextSpan(
-                                  text: " ৳$price",
-                                  style: TextStyles.bodyText3.copyWith(
-                                    color: KColor.textgrey,
-                                    fontWeight: FontWeight.w600,
-                                    decoration: TextDecoration.lineThrough,
-                                  ),
-                                )
-                              : TextSpan(
-                                  text: " ৳$price",
-                                  style: TextStyles.bodyText3.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    color: KColor.primary,
-                                    letterSpacing: 0.3,
-                                  ),
-                                )
-                        ])),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                          color: KColor.gray,
+                          borderRadius: BorderRadius.circular(50)),
+                      child: const Icon(
+                        Icons.favorite_border_outlined,
+                        size: 18,
+                      ),
+                    ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

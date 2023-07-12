@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/size/k_size.dart';
@@ -20,22 +19,23 @@ class KButton extends StatefulWidget {
   final Icon? trailingTitleIcon;
   final TextOverflow textOverflow;
   final TextStyle? textStyle;
-   KButton(
-      {this.width,
-      this.height,
-      this.title,
-      this.onPressedCallback,
-      this.innerPadding = 0,
-      this.color = KColor.primary,
-      this.textColor = KColor.black,
-      this.borderColor = KColor.grey,
-      this.isOutlineButton = false,
-      this.radius = 2,
-      this.hasTrailngTitleIcon = false,
-      this.leadingTitleIcon,
-      this.trailingTitleIcon,
-      this.textOverflow = TextOverflow.visible,
-      this.textStyle,});
+  KButton({
+    this.width,
+    this.height,
+    this.title,
+    this.onPressedCallback,
+    this.innerPadding = 0,
+    this.color = KColor.primary,
+    this.textColor = KColor.black,
+    this.borderColor = KColor.grey,
+    this.isOutlineButton = false,
+    this.radius = 8.0,
+    this.hasTrailngTitleIcon = false,
+    this.leadingTitleIcon,
+    this.trailingTitleIcon,
+    this.textOverflow = TextOverflow.visible,
+    this.textStyle,
+  });
 
   @override
   _KButtonState createState() => _KButtonState();

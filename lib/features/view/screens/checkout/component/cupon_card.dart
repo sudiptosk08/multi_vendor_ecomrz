@@ -2,7 +2,7 @@ import 'package:ecommerce_app/features/view/global_component/text_field_containe
 import 'package:flutter/material.dart';
 import '../../../../../utils/colors/app_colors.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
-import '../../../global_component/drop_down/Kdrop_down_field.dart';
+import '../../../global_component/buttons/Kdrop_down_field.dart';
 
 class CouponCodeCard extends StatelessWidget {
   // final String? title;
@@ -24,17 +24,18 @@ class CouponCodeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Text(title!, style: TextStyles.subTitle),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              Flexible(
-                flex: 2,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Text(title!, style: TextStyles.subTitle),
+        const SizedBox(height: 2),
+        Row(
+          children: [
+            Flexible(
+              flex: 2,
+              child: Container(
+                color: KColor.grey300,
+                padding: const EdgeInsets.all(0.8),
                 child: KFillNormal(
                   controller: controller!,
                   hintText: hintText!,
@@ -42,25 +43,25 @@ class CouponCodeCard extends StatelessWidget {
                   readOnly: readOnly!,
                 ),
               ),
-              const SizedBox(width: 8),
-              Flexible(
-                child: KButton(
-                  width: double.infinity,
-                  height: 45,
-                  isOutlineButton: false,
-                  radius: 5,
-                  color: KColor.primary,
-                  textStyle: TextStyles.subTitle.copyWith(
-                    color: KColor.white,
-                  ),
-                  title: buttonText,
-                  onPressedCallback: tap,
+            ),
+            const SizedBox(width: 8),
+            Flexible(
+              child: KButton(
+                width: double.infinity,
+                height: 47,
+                isOutlineButton: false,
+                radius: 5,
+                color: KColor.primary,
+                textStyle: TextStyles.subTitle.copyWith(
+                  color: KColor.black,
                 ),
+                title: buttonText,
+                onPressedCallback: tap,
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/view/screens/auth/login_page.dart';
 import 'package:ecommerce_app/utils/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -35,60 +36,31 @@ class KDrawer extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  Divider(color: KColor.black.withOpacity(0.2), thickness: 1),
+                  Divider(color: KColor.black54.withOpacity(0.2), thickness: 1),
+                  const SizedBox(
+                    height: 40,
+                  ),
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, '/mainScreen');
                     },
                     child: Text(
                       'Home',
-                      style: TextStyles.subTitle.copyWith(color: KColor.black),
+                      style:
+                          TextStyles.subTitle.copyWith(color: KColor.black54),
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // ListView.builder(
-                  //   itemCount: 5,
-                  //   physics: const NeverScrollableScrollPhysics(),
-                  //   shrinkWrap: true,
-                  //   padding: EdgeInsets.zero,
-                  //   itemBuilder: (BuildContext context, int index) {
-                  //     return Column(
-                  //       crossAxisAlignment: CrossAxisAlignment.start,
-                  //       children: [
-                  //         InkWell(
-                  //           onTap: () {
-                  //             // if (menuData.user.isActive == 1) {
-                  //             //   // ref
-                  //             //   //     .read(shopProvider.notifier)
-                  //             //   //     .fetchShopProductList(
-                  //             //   //         categoryId: menuData.menus[index].id);
-
-                  //             //   Navigator.pushNamed(context, '/shop');
-                  //             // } else {
-                  //             //   toast('Coming soon...');
-                  //             // }
-                  //           },
-                  //           child: Text(
-                  //            "Sudipto Sarker",
-                  //             style: TextStyles.subTitle
-                  //                 .copyWith(color: KColor.black),
-                  //           ),
-                  //         ),
-                  //         const SizedBox(height: 16),
-                  //       ],
-                  //     );
-                  //   },
-                  // ),
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, '/contact');
                     },
                     child: Text(
                       'Contact Us',
-                      style: TextStyles.subTitle.copyWith(color: KColor.black),
+                      style:
+                          TextStyles.subTitle.copyWith(color: KColor.black54),
                     ),
                   ),
-
                   const SizedBox(height: 16),
                   InkWell(
                     onTap: () {
@@ -96,7 +68,8 @@ class KDrawer extends ConsumerWidget {
                     },
                     child: Text(
                       'About Us',
-                      style: TextStyles.subTitle.copyWith(color: KColor.black),
+                      style:
+                          TextStyles.subTitle.copyWith(color: KColor.black54),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -106,37 +79,24 @@ class KDrawer extends ConsumerWidget {
                     },
                     child: Text(
                       'Shop ',
-                      style: TextStyles.subTitle.copyWith(color: KColor.black),
+                      style:
+                          TextStyles.subTitle.copyWith(color: KColor.black54),
                     ),
                   ),
-                  SizedBox(height: context.screenHeight * 0.05),
-                  Divider(color: KColor.black.withOpacity(0.2), thickness: 1),
-                  // if (!getBoolAsync(isLoggedIn))
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/login');
-                        },
-                        child: Text(
-                          'Log In',
-                          style:
-                              TextStyles.subTitle.copyWith(color: KColor.black),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/login');
-                        },
-                        child: Text(
-                          'Registration',
-                          style:
-                              TextStyles.subTitle.copyWith(color: KColor.black),
-                        ),
-                      ),
-                    ],
+                  const SizedBox(height: 16),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginPage(),
+                          ));
+                    },
+                    child: Text(
+                      'Login ',
+                      style:
+                          TextStyles.subTitle.copyWith(color: KColor.black54),
+                    ),
                   ),
                 ],
               ),
@@ -144,7 +104,8 @@ class KDrawer extends ConsumerWidget {
               Center(
                 child: Column(
                   children: [
-                    Divider(color: KColor.black.withOpacity(0.2), thickness: 1),
+                    Divider(
+                        color: KColor.black54.withOpacity(0.2), thickness: 1),
                     const SizedBox(height: 40),
                     InkWell(
                       onTap: () {
@@ -157,8 +118,8 @@ class KDrawer extends ConsumerWidget {
                           const SizedBox(width: 10),
                           Text(
                             '01998-685230',
-                            style: TextStyles.subTitle
-                                .copyWith(color: KColor.black.withOpacity(0.8)),
+                            style: TextStyles.subTitle.copyWith(
+                                color: KColor.black54.withOpacity(0.8)),
                           )
                         ],
                       ),
@@ -178,7 +139,7 @@ class KDrawer extends ConsumerWidget {
                             'e-commerce@gmail.com',
                             style: TextStyles.subTitle.copyWith(
                               fontSize: 14,
-                              color: KColor.black.withOpacity(0.8),
+                              color: KColor.black54.withOpacity(0.8),
                             ),
                           ),
                         ],
@@ -210,7 +171,7 @@ class KDrawer extends ConsumerWidget {
                                 'https://www.youtube.com/channel/UCSUcQ8_MuhFzNh4E5BlTR-g');
                           },
                           icon: SvgPicture.asset('assets/svg/youtubeIcon.svg',
-                              color: KColor.primary),
+                              color: KColor.red),
                         ),
                       ],
                     )

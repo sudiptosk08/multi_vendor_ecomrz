@@ -3,6 +3,7 @@ import 'package:ecommerce_app/utils/extension/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../utils/assets/app_assets.dart';
 import '../../../../../utils/colors/app_colors.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
 
@@ -17,10 +18,10 @@ class KStepper extends StatefulWidget {
 
 class _KStepperState extends State<KStepper> {
   List<String> items = [
-    "Your parcel has been picked.6 May,2021 16:34",
-    "Your parcel has been picked.6 May,2021 16:34",
-    "Your parcel has been picked.6 May,2021 16:34",
-    "Your parcel has been picked.6 May,2021 16:34",
+    "Your parcel has been picked .6 May,2021 16:34",
+    "Your parcel has been packing for in transit",
+    "Your parcel has been out for delivery.",
+    "Your parcel has been delivered .9 May,2021 16:34",
   ];
   List<String> track = [
     "Picked",
@@ -83,6 +84,7 @@ class _KStepperState extends State<KStepper> {
         children: [
           Image.asset(
             trackIcons[index],
+            color: KColor.primary,
             height: 42,
           ),
           const SizedBox(height: 4),
@@ -91,7 +93,7 @@ class _KStepperState extends State<KStepper> {
             child: Text(
                 textAlign: TextAlign.center,
                 track[index],
-                style: TextStyles.bodyText1),
+                style: TextStyles.bodyText1.copyWith(color: KColor.black54)),
           ),
         ],
       ),
@@ -101,24 +103,31 @@ class _KStepperState extends State<KStepper> {
   Flexible _stepsDescription(int index) {
     return Flexible(
       child: Text(
-          textAlign: TextAlign.left, items[index], style: TextStyles.bodyText1),
+          textAlign: TextAlign.left,
+          items[index],
+          style: TextStyles.bodyText1.copyWith(color: KColor.black54)),
     );
   }
 
   Column _buildSteps(int index) {
     return Column(
       children: [
-        SizedBox(
-          height: 24,
-          width: 30,
-          child: currentIndex == index
-              ? SvgPicture.asset(
-                  'assets/images/success.svg',
-                )
-              : SvgPicture.asset(
-                  'assets/images/inactiveIcon.svg',
-                ),
-        ),
+        Container(
+            height: 25,
+            width: 25,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: KColor.background,
+            ),
+            child: currentIndex == index
+                ? Image.asset(
+                    AppAssets.check,
+                    color: KColor.green,
+                  )
+                : Image.asset(
+                    AppAssets.check,
+                    color: KColor.errorRedText,
+                  )),
         index == items.length - 1
             ? Container()
             : const SizedBox(

@@ -51,9 +51,9 @@ class _TrackOrderState extends State<TrackOrder> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Text("ID: #OrId502 ", style: TextStyles.headline5),
+              Text("ID: #OrId502 ", style: TextStyles.headline5),
+              const SizedBox(
+                height: 4,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,7 +67,7 @@ class _TrackOrderState extends State<TrackOrder> {
                           // "6 May",
                           "06- 04 - 2023",
                           style: TextStyles.bodyText1
-                              .copyWith(color: KColor.textgrey)),
+                              .copyWith(color: KColor.black54)),
                     ],
                   ),
                   Column(
@@ -77,17 +77,15 @@ class _TrackOrderState extends State<TrackOrder> {
                       const SizedBox(height: 8),
                       Text("6 May - 12 May",
                           style: TextStyles.bodyText1
-                              .copyWith(color: KColor.textgrey)),
+                              .copyWith(color: KColor.black54)),
                     ],
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 15),
               Text("Tracking Details", style: TextStyles.subTitle),
               const SizedBox(height: 16),
               const KStepper(checkStepper: false),
-              SizedBox(height: context.screenHeight * 0.04),
-              SizedBox(height: context.screenHeight * 0.04),
               const SizedBox(height: 30),
             ],
           ),

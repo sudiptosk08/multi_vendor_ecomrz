@@ -39,6 +39,7 @@ class TextFieldContainer extends StatelessWidget {
         decoration: InputDecoration(
           suffixIcon: suffixIcon,
           labelText: label,
+          labelStyle: TextStyle(color: KColor.black54),
           //labelStyle: ,//TextStyles.lightRubik16Gray94,
           hintText: hint,
           //hintStyle: TextStyles.lightRubik16Gray94,

@@ -8,7 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/text_styles/text_styles.dart';
 import '../../global_component/appBar/app_bar.dart';
-import '../../global_component/drop_down/Kdrop_down_field.dart';
+import '../../global_component/buttons/Kdrop_down_field.dart';
 import '../../global_component/text_field_container/k_text_field.dart';
 
 class ReportIssue extends StatefulWidget {
@@ -113,7 +113,7 @@ class _ReportIssueState extends State<ReportIssue> {
                   height: 175,
                   decoration: BoxDecoration(
                     color: KColor.background.withOpacity(0.8),
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: image == null
                       ? Column(
@@ -145,7 +145,7 @@ class _ReportIssueState extends State<ReportIssue> {
                 children: [
                   KButton(
                     title: 'Add Reports',
-                    textColor: KColor.white,
+                    textColor: KColor.black,
                     onPressedCallback: () {},
                     width: context.screenWidth * 0.45,
                     height: 40,
@@ -153,7 +153,7 @@ class _ReportIssueState extends State<ReportIssue> {
                   const SizedBox(height: 16),
                   KButton(
                     title: 'View Report List',
-                    textColor: KColor.white,
+                    textColor: KColor.black,
                     onPressedCallback: () {
                       Navigator.push(
                           context,

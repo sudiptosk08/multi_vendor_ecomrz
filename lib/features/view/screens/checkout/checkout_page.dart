@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/view/screens/checkout/component/cupon_card.dart';
 import 'package:ecommerce_app/utils/extension/extension.dart';
 import 'package:flutter/material.dart';
 import '../../../../utils/assets/app_assets.dart';
@@ -5,7 +6,7 @@ import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/size/k_size.dart';
 import '../../../../utils/text_styles/text_styles.dart';
 import '../../global_component/appBar/app_bar.dart';
-import '../../global_component/drop_down/Kdrop_down_field.dart';
+import '../../global_component/buttons/Kdrop_down_field.dart';
 import '../shipping_address/shipping_address_page.dart';
 import 'component/cart_item_list.dart';
 
@@ -17,11 +18,19 @@ class CheckoutPage extends StatefulWidget {
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
-  String? paymentSelect;
-  @override
-  void initState() {
-    super.initState();
-  }
+  var selectMethod;
+
+  TextEditingController promoCode = TextEditingController();
+  TextEditingController controller = TextEditingController();
+  TextEditingController referralCode = TextEditingController();
+  TextEditingController giftVoucherCode = TextEditingController();
+
+  List<dynamic> productSizeList = [
+    {'name': "COD", 'image': AppAssets.cod},
+    {'name': "bkash", 'image': AppAssets.bkash},
+    {'name': "Nagod", 'image': AppAssets.nagad},
+    {'name': "Card", 'image': AppAssets.card},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +64,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     margin: const EdgeInsets.symmetric(vertical: 16),
                     decoration: BoxDecoration(
                       color: KColor.white,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,83 +119,66 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             const SizedBox(height: 10),
                           ],
                         ),
-                        const SizedBox(height: 16),
-                        const SizedBox(height: 16),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Payment', style: TextStyles.subTitle),
-                            SizedBox(height: KSize.getHeight(context, 16)),
-                            Container(
-                              height: KSize.getHeight(context, 60),
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: KColor.background),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: KSize.getWidth(context, 10)),
-                                child: DropdownButtonHideUnderline(
-                                  child: DropdownButton<String>(
-                                    icon: const Icon(Icons.keyboard_arrow_down),
-                                    value: paymentSelect,
-                                    hint: Text("Payment Method"),
-                                    dropdownColor: KColor.background,
-                                    items: [
-                                      {
-                                        'name': "Cash On Delivery",
-                                        'image': AppAssets.cod
-                                      },
-                                      {
-                                        'name': "bkash",
-                                        'image': AppAssets.bkash
-                                      },
-                                      {
-                                        'name': "Nagod",
-                                        'image': AppAssets.nagad
-                                      },
-                                    ].map<DropdownMenuItem<String>>((value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value.toString(),
-                                        child: Container(
-                                          width: 305,
-                                          decoration: const BoxDecoration(
-                                            color: KColor.background,
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.only(
-                                                left: KSize.getWidth(
-                                                    context, 3.0)),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  "${value['name']}",
-                                                  style: TextStyles.bodyText1
-                                                      .copyWith(
-                                                          color: KColor.black),
-                                                ),
-                                                Image.asset(
-                                                    "${value['image']}"),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    }).toList(),
-                                    onChanged: (String? value) {
+                        Text(
+                          'Payment Method',
+                          style:
+                              TextStyles.subTitle.copyWith(color: KColor.black),
+                        ),
+                        const SizedBox(height: 12),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 90,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: productSizeList.length,
+                            itemBuilder: (context, int index) {
+                              return Padding(
+                                  padding: const EdgeInsets.all(3.0),
+                                  child: InkWell(
+                                    onTap: () {
                                       setState(() {
-                                        paymentSelect = value;
-                                        // print("price is :${priceString}");
+                                        selectMethod = index;
                                       });
                                     },
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                                    child: Container(
+                                      width: 80,
+                                      margin: const EdgeInsets.only(bottom: 5),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 3, horizontal: 2),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          border: Border.all(
+                                              width: 2,
+                                              color: selectMethod == index
+                                                  ? KColor.primary
+                                                  : KColor.grey
+                                                      .withOpacity(0.6))),
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: KSize.getWidth(context, 3.0)),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Image.asset(
+                                              "${productSizeList[index]['image']}",
+                                              height: 50,
+                                              width: 50,
+                                            ),
+                                            Text(
+                                              "${productSizeList[index]['name']}",
+                                              style: TextStyles.bodyText1
+                                                  .copyWith(
+                                                      color: KColor.black),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ));
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -197,7 +189,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: KColor.white,
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(8)),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
@@ -211,6 +203,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               height: 5,
                             ),
                             text("Discount", "20%"),
+                            CouponCodeCard(
+                              buttonText: "Apply",
+                              controller: promoCode,
+                              hintText: "Voucher Code",
+                              readOnly: false,
+                              tap: () {},
+                            ),
                             const SizedBox(
                               height: 5,
                             ),
@@ -227,7 +226,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                     ),
                   ),
-                  // CardTotal(),
                 ],
               ),
               SizedBox(height: context.screenHeight * 0.1),
@@ -241,10 +239,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
           width: double.infinity,
           height: 40,
           isOutlineButton: false,
-          radius: 10,
+          radius: 8,
           color: KColor.primary,
           textStyle: TextStyles.subTitle.copyWith(
-            color: KColor.white,
+            color: KColor.black,
           ),
           onPressedCallback: () {},
           title: "Place to Order",

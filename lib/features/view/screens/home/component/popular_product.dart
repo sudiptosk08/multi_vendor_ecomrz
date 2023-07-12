@@ -3,7 +3,7 @@ import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:flutter/material.dart';
 import '../../../../../utils/colors/app_colors.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
-import '../../../global_component/product_card.dart/product_card.dart';
+import '../../../global_component/product_card.dart/popular_product_card.dart';
 
 class NewArrivalsProduct extends StatefulWidget {
   const NewArrivalsProduct({super.key});
@@ -16,39 +16,39 @@ class _NewArrivalsProductState extends State<NewArrivalsProduct> {
   List<dynamic> product = [
     {
       'id': 1,
-      'imagePath': AppAssets.product5,
-      'productName': "Party Dress Black qpuzid idhaihe kjslkd",
-      'price': 24.00,
+      'imagePath': AppAssets.shoe1,
+      'productName': "Party Dress Black -120 fabrics cloths Medimu Size",
+      'price': 240,
       'ratingStar': 5,
-      'discountPrice': 0,
-      'appDiscount': 0
+      'discountPrice': 160,
+      'appDiscount': 4
     },
     {
       'id': 2,
-      'imagePath': AppAssets.product2,
+      'imagePath': AppAssets.shoe2,
       'productName': "Party Dress Black liaud iuweyr klasdl",
-      'price': 24.00,
+      'price': 180,
       'ratingStar': 5,
-      'discountPrice': 0,
-      'appDiscount': 0
+      'discountPrice': 120,
+      'appDiscount': 6
     },
     {
       'id': 3,
-      'imagePath': AppAssets.sweater,
+      'imagePath': AppAssets.shoe3,
       'productName': "Party Dress Black asraf hosainlk adsl",
-      'price': 24.00,
-      'ratingStar': 5,
-      'discountPrice': 0,
-      'appDiscount': 0
+      'price': 700,
+      'ratingStar': 13,
+      'discountPrice': 590,
+      'appDiscount': 5
     },
     {
       'id': 4,
-      'imagePath': AppAssets.dress,
+      'imagePath': AppAssets.shoe5,
       'productName': "Party Dress Black Uhouas Jidhai Ieasl",
       'price': 24.00,
       'ratingStar': 5,
-      'discountPrice': 0,
-      'appDiscount': 0
+      'discountPrice': 20,
+      'appDiscount': 3
     },
   ];
   @override
@@ -60,7 +60,7 @@ class _NewArrivalsProductState extends State<NewArrivalsProduct> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "New Arrival",
+              "Popular Product",
               style: TextStyles.subTitle,
             ),
             GestureDetector(
@@ -69,26 +69,25 @@ class _NewArrivalsProductState extends State<NewArrivalsProduct> {
                     MaterialPageRoute(builder: (context) => ShopPage()));
               },
               child: Text(
-                "See all",
-                style: TextStyles.bodyText3.copyWith(color: KColor.primary),
+                "View all",
+                style: TextStyles.bodyText3.copyWith(color: KColor.secondary),
               ),
             )
           ],
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          physics: BouncingScrollPhysics(
+          physics:const BouncingScrollPhysics(
               decelerationRate: ScrollDecelerationRate.fast),
           child: Row(
             children: [
               ...List.generate(
                 product.length,
                 (index) {
-                  return ProductCard(
+                  return PopularProductCard(
                       id: product[index]['id'].toString(),
                       imagePath: product[index]['imagePath'],
                       productName: product[index]['productName'],
-                      //discount: store.state.PopularProductState[index]['discount'],
                       appDiscount: product[index]['appDiscount'],
                       price: product[index]['price'].toString(),
                       ratingStar: product[index]['ratingStar'],

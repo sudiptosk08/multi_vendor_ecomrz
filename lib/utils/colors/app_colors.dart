@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class KColor {
-  static const primary = Color(0xffff5351);
-  static const white = Color(0xffFFFFFF);
+  static const primary = Color(0xffFFBD5A);
+  static const secondary = Color(0xff4251D4);
 
-  static const background = Color(0xFFF5F5F5);
-  static const textgrey = Color.fromARGB(255, 174, 168, 168);
+  static const background = Color(0xFFF0F0F5);
+  static const textgrey = Color(0xFFCECECE);
   static const black = Color(0xff222222);
-  static const Color errorRedText = Color(0xFFEF6061);
+  static const Color errorRedText = Color(0xFFF17660);
 
   /*
   time grey text color 
@@ -68,11 +68,10 @@ class KColor {
   normal color
   */
   static Color black87 = Colors.black87;
-  static Color black38 = Colors.black38;
   static Color black54 = Colors.black54;
-  static const Color white38 = Colors.white38;
+  static const Color white38 = Color.fromARGB(255, 254, 254, 254);
   static Color white54 = Colors.white54;
-  static Color white60 = Colors.white60;
+  static Color white = Colors.white;
   static const Color grey = Colors.grey;
   static Color? grey50 = Colors.grey[50];
   static Color? grey100 = Colors.grey[100];
@@ -92,8 +91,8 @@ class KColor {
 
   static const Color orange = Color(0xFFF76B1C);
   static const Color blueA = Color(0xff395498);
-  static const Color gray = Color(0xffB9B9BB);
-  static const Color gray223 = Color(0xff969696);
+  static const Color gray = Color(0xffD9D9D9);
+  static const Color gray223 = Color(0xff848484);
   static const Color red123 = Color(0xffF7695B);
   static const Color gray242 = Color(0xffBCBCBF);
   static const Color greenAn = Color(0xffADB733);

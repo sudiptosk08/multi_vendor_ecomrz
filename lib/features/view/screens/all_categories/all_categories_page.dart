@@ -16,13 +16,26 @@ class AllCategoryPage extends StatefulWidget {
 class _AllCategoryPageState extends State<AllCategoryPage> {
   int selectIndex = 0;
   List<dynamic> category = [
-    {'name': 'Bady Dress', 'imagePath': AppAssets.dress},
-    {'name': 'Leather Bag', 'imagePath': AppAssets.bag},
-    {'name': 'Sweater ', 'imagePath': AppAssets.sweater},
-    {'name': 'Boots ', 'imagePath': AppAssets.dress},
-    {'name': 'Bady Dress', 'imagePath': AppAssets.dress},
-    {'name': 'Bady Dress', 'imagePath': AppAssets.dress},
-    {'name': 'Bady Dress', 'imagePath': AppAssets.dress},
+    {
+      'image': AppAssets.allProduct,
+      'name': "All",
+    },
+    {
+      'image': AppAssets.men,
+      'name': "Men",
+    },
+    {
+      'image': AppAssets.women,
+      'name': "Women",
+    },
+    {
+      'image': AppAssets.shoes,
+      'name': "Shoes",
+    },
+    {
+      'image': AppAssets.electronics,
+      'name': "Electronics",
+    },
   ];
 
   @override
@@ -50,7 +63,7 @@ class _AllCategoryPageState extends State<AllCategoryPage> {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
             crossAxisSpacing: 15.0,
-            mainAxisSpacing: 20.0,
+            mainAxisSpacing: 5.0,
             childAspectRatio: 2 / 3,
           ),
           itemCount: category.length,
@@ -58,15 +71,15 @@ class _AllCategoryPageState extends State<AllCategoryPage> {
             return Column(
               children: [
                 Container(
-                  width: KSize.getWidth(context, 90),
-                  height: KSize.getHeight(context, 90),
+                  width: KSize.getWidth(context, 70),
+                  height: KSize.getHeight(context, 70),
                   decoration: BoxDecoration(
                     color: KColor.white,
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: Center(
                     child: Image.asset(
-                      category[index]['imagePath'],
+                      category[index]['image'],
                       height: KSize.getHeight(context, 45),
                     ),
                   ),

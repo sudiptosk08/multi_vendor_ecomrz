@@ -65,7 +65,7 @@ class _ReportViewCardState extends State<ReportViewCard> {
               padding: myEdgeInsets,
               decoration: BoxDecoration(
                   color: KColor.white,
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(8),
                   border: Border.all(
                       width: 1, color: KColor.textgrey.withOpacity(0.4))),
               child: Column(
@@ -81,24 +81,11 @@ class _ReportViewCardState extends State<ReportViewCard> {
                               children: [
                                 Row(
                                   children: [
-                                    Container(
-                                      width: 10,
-                                      height: 10,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        image: DecorationImage(
-                                            image:
-                                                AssetImage("${widget.image}")),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 4,
-                                    ),
                                     Text(
                                       "#OrId${widget.orderId}",
                                       textAlign: TextAlign.justify,
                                       style: TextStyles.bodyText1
-                                          .copyWith(color: KColor.primary),
+                                          .copyWith(color: KColor.black),
                                       maxLines: 2,
                                     ),
                                   ],
@@ -108,12 +95,14 @@ class _ReportViewCardState extends State<ReportViewCard> {
                                     Text(
                                       "Date: ",
                                       textAlign: TextAlign.justify,
-                                      style: TextStyles.bodyText1,
+                                      style: TextStyles.bodyText1
+                                          .copyWith(color: KColor.black54),
                                     ),
                                     Text(
                                       " ${widget.date}",
                                       textAlign: TextAlign.justify,
-                                      style: TextStyles.bodyText2,
+                                      style: TextStyles.bodyText2
+                                          .copyWith(color: KColor.black54),
                                       maxLines: 2,
                                     ),
                                   ],
@@ -123,12 +112,14 @@ class _ReportViewCardState extends State<ReportViewCard> {
                                     Text(
                                       "Reason: ",
                                       textAlign: TextAlign.justify,
-                                      style: TextStyles.bodyText1,
+                                      style: TextStyles.bodyText1
+                                          .copyWith(color: KColor.black54),
                                     ),
                                     Text(
                                       " ${widget.reason}",
                                       textAlign: TextAlign.justify,
-                                      style: TextStyles.bodyText2,
+                                      style: TextStyles.bodyText2
+                                          .copyWith(color: KColor.black54),
                                       maxLines: 2,
                                     ),
                                   ],
@@ -152,7 +143,7 @@ class _ReportViewCardState extends State<ReportViewCard> {
                             height: 85,
                             decoration: BoxDecoration(
                               color: KColor.textgrey,
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(8),
                               image: DecorationImage(
                                   image: AssetImage(widget.image.toString())),
                             ),
@@ -164,7 +155,8 @@ class _ReportViewCardState extends State<ReportViewCard> {
                             child: Text(
                               widget.detailstxt!,
                               textAlign: TextAlign.justify,
-                              style: TextStyles.bodyText3,
+                              style: TextStyles.bodyText3
+                                  .copyWith(color: KColor.black54),
                               maxLines: 6,
                             ),
                           ),

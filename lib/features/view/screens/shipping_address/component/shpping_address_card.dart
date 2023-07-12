@@ -74,7 +74,7 @@ class _ShippingAddressCardState extends State<ShippingAddressCard> {
         margin: const EdgeInsets.only(bottom: 4),
         height: 123,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(8),
             color: KColor.white,
             border:
                 Border.all(color: KColor.textgrey.withOpacity(0.4), width: 1)),
@@ -103,24 +103,22 @@ class _ShippingAddressCardState extends State<ShippingAddressCard> {
                         Text(
                           '${widget.address}',
                           style: TextStyles.bodyText1
-                              .copyWith(color: KColor.black.withOpacity(0.3)),
+                              .copyWith(color: KColor.black54),
                         ),
                         Row(
                           children: [
-                            Text(
-                              '${widget.city}, ',
-                              style: TextStyles.bodyText1.copyWith(
-                                  color: KColor.black.withOpacity(0.3)),
-                            ),
+                            Text('${widget.city}, ',
+                                style: TextStyles.bodyText1
+                                    .copyWith(color: KColor.black54)),
                             Text(
                               '${widget.zone}, ',
-                              style: TextStyles.bodyText1.copyWith(
-                                  color: KColor.black.withOpacity(0.3)),
+                              style: TextStyles.bodyText1
+                                  .copyWith(color: KColor.black54),
                             ),
                             Text(
                               '${widget.area}',
-                              style: TextStyles.bodyText1.copyWith(
-                                  color: KColor.black.withOpacity(0.3)),
+                              style: TextStyles.bodyText1
+                                  .copyWith(color: KColor.black54),
                             ),
                           ],
                         ),
@@ -143,7 +141,7 @@ class _ShippingAddressCardState extends State<ShippingAddressCard> {
                             color: widget.isChecked
                                 ? KColor.black
                                 : KColor.transparent,
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: KColor.black, width: 1),
                           ),
                           child: widget.isChecked

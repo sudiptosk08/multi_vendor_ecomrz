@@ -27,7 +27,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5, right: 10, left: 10),
+      padding: const EdgeInsets.only(right: 10, left: 10),
       child: TextFormField(
         validator: (value) {
           if (value == null || value.isEmpty) {
@@ -51,19 +51,18 @@ class _SearchTextFieldState extends State<SearchTextField> {
             padding: EdgeInsets.all(14.0),
             child: Icon(
               Icons.search,
-              color: KColor.primary,
+              color: KColor.black,
             ),
           ),
           hintText: widget.hintText,
+          hintStyle: TextStyle(color: KColor.textgrey),
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12),
           border: const UnderlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
             borderSide: BorderSide.none,
           ),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: KColor.grey.withOpacity(0.5))),
-          fillColor: KColor.transparent,
+          fillColor: KColor.white,
           filled: true,
           floatingLabelBehavior: FloatingLabelBehavior.always,
         ),

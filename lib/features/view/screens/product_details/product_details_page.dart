@@ -1,11 +1,8 @@
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
+import 'package:ecommerce_app/utils/text_styles/text_styles.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../utils/helper/helper.dart';
 import '../../global_component/appBar/app_bar.dart';
-import 'component/add_to_cart.dart';
 import 'component/product_info.dart';
-import 'component/product_preview.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   final String? productName;
@@ -28,7 +25,7 @@ class ProductDetailsPage extends StatefulWidget {
 }
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
-  List<String> items = ["Variations", "Descriptions", "Reviews"];
+  // List<String> items = ["Variations", "Descriptions", "Reviews"];
   int currentIndex = 0;
   int quantity = 1;
 
@@ -52,22 +49,28 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               },
               icon: const Icon(Icons.arrow_back_ios)),
           actions: [
-            IconButton(
-              onPressed: () {
-                Helper.dissmissKeyboard();
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.shopping_cart_outlined,
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: InkWell(
+                onTap: () {
+                  setState(() {});
+                },
+                child: const CircleAvatar(
+                  backgroundColor: KColor.gray,
+                  child: Icon(
+                    Icons.favorite,
+                    color: KColor.errorRedText,
+                    size: 22,
+                  ),
+                ),
               ),
-            ),
+            )
           ],
         ),
       ),
       body: SafeArea(
         child: Column(
           children: [
-            ProductPreview(id: widget.id.toString()),
             ProductInfo(
               productName: widget.productName,
               productGroup: widget.productGroup,
@@ -90,18 +93,34 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 });
               },
             ),
-            AddToCart(
-              cart: () {
-                // if (!getBoolAsync(isLoggedIn)) {
-                //   toast('Please login to continue...', bgColor: KColor.red);
-                //   Navigator.pushNamed(context, '/login');
-                // }
-                // if (cartState is! LoadingState) {
-                //   ref.read(cartProvider.notifier).addCart(quantity: quantity);
-                //}
-              },
-            ),
           ],
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(left: 33.0),
+        child: InkWell(
+          onTap: () {},
+          child: Container(
+            height: 45,
+            decoration: BoxDecoration(
+                color: KColor.primary, borderRadius: BorderRadius.circular(8)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.shopping_cart_checkout_outlined,
+                  color: KColor.black54,
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  'Add to cart',
+                  style: TextStyles.subTitle.copyWith(color: KColor.black),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

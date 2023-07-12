@@ -3,7 +3,6 @@ import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../../utils/size/k_size.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
-import '../../all_categories/all_categories_page.dart';
 
 class CategorySection extends StatefulWidget {
   const CategorySection({Key? key}) : super(key: key);
@@ -16,28 +15,24 @@ class _CategorySectionState extends State<CategorySection> {
   int selectIndex = -1;
   List<dynamic> categories = [
     {
-      'image': AppAssets.dress,
-      'name': "Baby Dress",
+      'image': AppAssets.allProduct,
+      'name': "All",
     },
     {
-      'image': AppAssets.bag,
-      'name': "Leather Bag",
+      'image': AppAssets.men,
+      'name': "Men",
     },
     {
-      'image': AppAssets.sweater,
-      'name': "Sweater",
+      'image': AppAssets.women,
+      'name': "Women",
     },
     {
-      'image': AppAssets.boots,
-      'name': "Boots",
+      'image': AppAssets.shoes,
+      'name': "Shoes",
     },
     {
-      'image': AppAssets.dress,
-      'name': "Baby Dress",
-    },
-    {
-      'image': AppAssets.bag,
-      'name': "Leather Bag",
+      'image': AppAssets.electronics,
+      'name': "Electronics",
     },
   ];
 
@@ -50,31 +45,9 @@ class _CategorySectionState extends State<CategorySection> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Categories",
-                  style: TextStyles.subTitle,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AllCategoryPage()));
-                  },
-                  child: Text(
-                    "See all",
-                    style: TextStyles.bodyText3.copyWith(color: KColor.primary),
-                  ),
-                )
-              ],
-            ),
-            Container(
-              padding: const EdgeInsets.only(top: 8),
+            SizedBox(
               width: double.infinity,
-              height: KSize.getHeight(context, 155),
+              height: KSize.getHeight(context, 55),
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: categories.length,
@@ -90,31 +63,31 @@ class _CategorySectionState extends State<CategorySection> {
                       // Navigator.pushNamed(context, '/shop');
                     },
                     child: Padding(
-                      padding: const EdgeInsets.all(4.5),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: KSize.getWidth(context, 80),
-                            height: KSize.getWidth(context, 99),
-                            decoration: BoxDecoration(
-                              color: KColor.white,
-                              borderRadius: BorderRadius.circular(4),
+                      padding: const EdgeInsets.all(3.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: KColor.white,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          children: [
+                            Center(
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 8, right: 8, bottom: 5, top: 5),
+                                child: Image.asset(categories[index]['image']),
+                              ),
                             ),
-                            child: Column(
-                              children: [
-                                Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child:
-                                        Image.asset(categories[index]['image']),
-                                  ),
-                                ),
-                                Text(categories[index]['name'],
-                                    style: TextStyles.bodyText3),
-                              ],
+                            const SizedBox(
+                              width: 1,
                             ),
-                          ),
-                        ],
+                            Text(categories[index]['name'],
+                                style: TextStyles.bodyText3),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );

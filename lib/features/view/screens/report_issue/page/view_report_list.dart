@@ -35,7 +35,7 @@ class _ReportListState extends State<ReportList> {
           ),
           body: SingleChildScrollView(
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 1),
+              margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +46,7 @@ class _ReportListState extends State<ReportList> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 ReportViewCard(
-                                  image: AppAssets.bag,
+                                  image: AppAssets.shoe1,
                                   orderId: "5",
                                   reason: "Wrong Product Delivery",
                                   date: "2023-04-06",
