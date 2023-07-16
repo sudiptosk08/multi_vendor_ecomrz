@@ -6,6 +6,7 @@ import 'package:ecommerce_app/utils/extension/extension.dart';
 import 'package:ecommerce_app/utils/size/k_size.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
 
 class ProductInfo extends StatefulWidget {
@@ -61,6 +62,7 @@ class _ProductInfoState extends State<ProductInfo> {
     {'size': "L"},
     {'size': "XL"}
   ];
+  var value = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -265,6 +267,144 @@ class _ProductInfoState extends State<ProductInfo> {
                       ),
                     ],
                   ),
+                  Text(
+                    "Buy From",
+                    style: TextStyles.subTitle,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: KColor.primary.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(8)),
+                    padding: const EdgeInsets.all(6),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Image.network(
+                              "https://media.e-valy.com/cms/brands/logo/7f4646c1-6e94-43ef-98d3-7def922409bc?h=350&w=350",
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.cover,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 4.0),
+                              child: SizedBox(
+                                height: 100,
+                                width: 200,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Opera ShoppingMall Lots of Brand Collection",
+                                      style: TextStyles.subTitle,
+                                      maxLines: 2,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                            padding: const EdgeInsets.only(
+                                                left: 8,
+                                                top: 5,
+                                                right: 8,
+                                                bottom: 5),
+                                            decoration: BoxDecoration(
+                                                color: KColor.royalOrange,
+                                                borderRadius:
+                                                    BorderRadius.circular(15)),
+                                            child: const Text("19 Stock")),
+                                        const SizedBox(
+                                          width: 5,
+                                        ),
+                                        Container(
+                                            padding: const EdgeInsets.only(
+                                                left: 8,
+                                                top: 5,
+                                                right: 8,
+                                                bottom: 5),
+                                            decoration: BoxDecoration(
+                                                color: KColor.errorRedText,
+                                                borderRadius:
+                                                    BorderRadius.circular(15)),
+                                            child: const Text("Sold 9"))
+                                      ],
+                                    ),
+                                    SmoothStarRating(
+                                      color: KColor.primary,
+                                      borderColor: KColor.yellow800,
+                                      size: 20,
+                                      rating: value,
+                                      onRatingChanged: (rating) {
+                                        setState(() {
+                                          value = rating;
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: KColor.black54,
+                              size: 18,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            SizedBox(
+                              width: KSize.getWidth(context, 310),
+                              child: Text(
+                                "House No 652, Block k, Road 11, Mirpur Dosh (10), Dhaka , Bangladesh",
+                                maxLines: 2,
+                                style: TextStyles.bodyText1
+                                    .copyWith(color: KColor.grey),
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.delivery_dining,
+                              color: KColor.black54,
+                              size: 18,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "60 (Out side area 120)",
+                              maxLines: 2,
+                              style: TextStyles.bodyText1
+                                  .copyWith(color: KColor.grey),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    'Variation',
+                    style: TextStyles.subTitle.copyWith(color: Colors.black),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   SizedBox(
                     width: double.infinity,
                     height: 55,
@@ -296,7 +436,7 @@ class _ProductInfoState extends State<ProductInfo> {
                                   border: Border.all(
                                       width: 2,
                                       color: selectIndex == index
-                                          ? KColor.primary
+                                          ? KColor.grey
                                           : KColor.white)),
                               child: Center(
                                 child: CachedNetworkImage(
@@ -339,7 +479,7 @@ class _ProductInfoState extends State<ProductInfo> {
                                     border: Border.all(
                                         width: 2,
                                         color: selectSize == index
-                                            ? KColor.primary
+                                            ? KColor.grey
                                             : KColor.white)),
                                 child: Center(
                                   child: Text(
@@ -361,23 +501,35 @@ class _ProductInfoState extends State<ProductInfo> {
                         style:
                             TextStyles.subTitle.copyWith(color: Colors.black),
                       ),
-
+                      const SizedBox(
+                        height: 8,
+                      ),
                       Text(
-                        "The Tech Hera is here to fulfil all of your chunky sneakers wishes. The wavy lifted midsole and suede accents level up your look while keeping you comfortable. And its durable design holds up beautifully to everyday wear—which is perfect, because you'll definitely want to wear these every day. holds up beautifully to everyday wear—which is perfect, because you'll definitely want",
+                        "The Tech Hera is here to fulfil all of your chunky sneakers wishes. The wavy lifted midsole and suede accents level up your look while keeping you comfortable. And its durable design holds up beautifully to everyday wear—which is perfect, because you'll definitely want to wear these every day. ",
                         textAlign: TextAlign.justify,
                         style: TextStyles.bodyText1
                             .copyWith(color: KColor.gray223),
                       ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        "The Tech Hera is here to fulfil all of your chunky sneakers wishes. The wavy lifted midsole and suede accents level up your look while keeping you comfortable. And its durable design holds up beautifully to everyday wear—which is perfect, because you'll definitely want to wear these every day. holds up beautifully to everyday wear—which is perfect, because you'll definitely want",
-                        textAlign: TextAlign.justify,
-                        style: TextStyles.bodyText1
-                            .copyWith(color: KColor.gray223),
+                        'Specification',
+                        style:
+                            TextStyles.subTitle.copyWith(color: Colors.black),
                       ),
-
-                      // } else ...{
-                      //   const Center(child: CupertinoActivityIndicator()),
-                      // }
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      _specification("Brand", "Upma"),
+                      _specification("Product Type", "T-Shirt"),
+                      _specification("Material", "Cotton 98%"),
+                      _specification("Gender", "Men"),
                     ],
                   ),
                   const SizedBox(
@@ -388,6 +540,24 @@ class _ProductInfoState extends State<ProductInfo> {
             ),
           ),
         ),
+      ],
+    );
+  }
+
+  Row _specification(title, description) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(
+          width: KSize.getWidth(context, 130),
+          child: Text(title,
+              style: TextStyles.bodyText1.copyWith(color: KColor.black54)),
+        ),
+        Text(":  ",
+            style: TextStyles.bodyText1.copyWith(color: KColor.black54)),
+        Expanded(
+            child: Text(description,
+                style: TextStyles.bodyText1.copyWith(color: KColor.black54))),
       ],
     );
   }

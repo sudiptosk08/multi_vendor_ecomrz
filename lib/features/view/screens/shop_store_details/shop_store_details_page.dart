@@ -1,5 +1,4 @@
 import 'package:ecommerce_app/features/view/screens/shop_store_details/component/shop_categroies_product.dart';
-import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:ecommerce_app/utils/extension/extension.dart';
 import 'package:ecommerce_app/utils/size/k_size.dart';
 import 'package:ecommerce_app/utils/text_styles/text_styles.dart';
@@ -26,6 +25,7 @@ class ShopStoreDetailsPage extends StatefulWidget {
 class _ShopStoreDetailsPageState extends State<ShopStoreDetailsPage>
     with SingleTickerProviderStateMixin {
   int selectedIndex = 0;
+  var value = 0.0;
   List categories = [
     "All ",
     "Smart Televisions",
@@ -41,7 +41,7 @@ class _ShopStoreDetailsPageState extends State<ShopStoreDetailsPage>
     return Scaffold(
       backgroundColor: KColor.background,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(250),
+        preferredSize: const Size.fromHeight(260),
         child: Column(
           children: [
             KAppBar(
@@ -56,13 +56,14 @@ class _ShopStoreDetailsPageState extends State<ShopStoreDetailsPage>
             Stack(children: [
               SizedBox(
                 width: double.infinity,
-                height: KSize.getHeight(context, 200),
+                height: KSize.getHeight(context, 220),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Container(
                       width: double.infinity,
                       height: KSize.getHeight(context, 120),
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: const EdgeInsets.only(top: 0),
                       decoration: BoxDecoration(
                           color: KColor.primary.withOpacity(0.2),
                           image: const DecorationImage(
@@ -71,38 +72,48 @@ class _ShopStoreDetailsPageState extends State<ShopStoreDetailsPage>
                                 "assets/images/shopify.PNG",
                               ))),
                     ),
+                    Container(
+                      padding: const EdgeInsets.only(top: 5, bottom: 5),
+                      width: KSize.getWidth(context, 225),
+                      height: KSize.getHeight(context, 100),
+                      child: Column(e
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.shopName,
+                            style: TextStyles.subTitle,
+                          ),
+                          SmoothStarRating(
+                            color: KColor.primary,
+                            borderColor: KColor.yellow800,
+                            size: 20,
+                            rating: value,
+                            onRatingChanged: (rating) {
+                              setState(() {
+                                value = rating;
+                              });
+                            },
+                          ),
+                          Text(
+                            widget.shopAddress,
+                            style: TextStyles.bodyText1
+                                .copyWith(color: KColor.grey),
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
               Positioned(
                   left: 20,
-                  bottom: 0,
+                  bottom: 10,
                   child: Image.network(
                     widget.shopImage,
-                    width: 120,
-                    height: 120,
-                  )),
-              Positioned(
-                  right: 20,
-                  bottom: 12,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.shopName,
-                        style: TextStyles.subTitle,
-                      ),
-                      SmoothStarRating(
-                        color: KColor.primary,
-                        borderColor: KColor.yellow800,
-                      ),
-                      Text(
-                        widget.shopAddress,
-                        style:
-                            TextStyles.bodyText1.copyWith(color: KColor.grey),
-                      )
-                    ],
+                    fit: BoxFit.fill,
+                    width: KSize.getWidth(context, 120),
+                    height: KSize.getHeight(context, 150),
                   )),
             ]),
           ],
