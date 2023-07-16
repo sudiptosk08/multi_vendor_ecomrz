@@ -8,6 +8,8 @@ class AppAssets {
   static const String notification = 'assets/images/notification.png';
   static const String cod = 'assets/images/cod.png';
   static const String nagad = 'assets/images/nagad.png';
+  static const String shop = 'assets/images/online-store.png';
+
   static const String bkash = 'assets/images/bkash-logo.png';
   static const String camera = 'assets/svg/camera.svg';
 

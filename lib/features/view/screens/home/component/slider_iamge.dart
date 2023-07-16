@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, prefer_typing_uninitialized_variables
+
 import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';

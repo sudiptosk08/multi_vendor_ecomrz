@@ -78,7 +78,7 @@ class PopularProductCard extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(6.0),
-                child: Container(
+                child: SizedBox(
                   width: KSize.getWidth(context, 124),
                   height: KSize.getWidth(context, 122),
                   child: Column(

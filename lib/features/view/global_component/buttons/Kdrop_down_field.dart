@@ -19,7 +19,7 @@ class KButton extends StatefulWidget {
   final Icon? trailingTitleIcon;
   final TextOverflow textOverflow;
   final TextStyle? textStyle;
-  KButton({
+   const KButton({super.key, 
     this.width,
     this.height,
     this.title,

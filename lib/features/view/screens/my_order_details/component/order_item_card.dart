@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:ecommerce_app/utils/text_styles/text_styles.dart';
 import 'package:flutter/material.dart';

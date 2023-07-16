@@ -4,14 +4,12 @@ import 'package:another_xlider/models/handler.dart';
 import 'package:another_xlider/models/slider_step.dart';
 import 'package:another_xlider/models/tooltip/tooltip.dart';
 import 'package:another_xlider/models/trackbar.dart';
+import 'package:ecommerce_app/features/view/global_component/buttons/Kdrop_down_field.dart';
 import 'package:ecommerce_app/utils/extension/extension.dart';
 import 'package:ecommerce_app/utils/size/k_size.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/text_styles/text_styles.dart';
@@ -113,7 +111,7 @@ class _KFilterState extends State<KFilter> {
                         tooltip: FlutterSliderTooltip(
                           custom: (value) => Padding(
                             padding: const EdgeInsets.only(top: 45.0),
-                            child: SizedBox(child: Text("${value}")),
+                            child: SizedBox(child: Text("$value")),
                           ),
                           direction: FlutterSliderTooltipDirection.top,
                           alwaysShowTooltip: true,
@@ -293,6 +291,30 @@ class _KFilterState extends State<KFilter> {
                   ),
                 ],
               ),
+              
+              Row(
+                children: [
+                  Expanded(
+                      child: KButton(
+                    title: "Reset",
+                    radius: 8,
+                    textColor: KColor.black,
+                    height: 45,
+                    onPressedCallback: () {},
+                  )),
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  Expanded(
+                      child: KButton(
+                    title: "Apply",
+                    radius: 8,
+                    height: 45,
+                    textColor: KColor.black,
+                    onPressedCallback: () {},
+                  ))
+                ],
+              )
             ],
           ),
         ),

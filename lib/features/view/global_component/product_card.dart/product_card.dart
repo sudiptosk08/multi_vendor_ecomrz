@@ -4,7 +4,7 @@ import '../../../../utils/size/k_size.dart';
 import '../../../../utils/text_styles/text_styles.dart';
 
 class ProductCard extends StatelessWidget {
-  ProductCard({
+  const ProductCard({
     Key? key,
     required this.imagePath,
     required this.productName,
@@ -50,7 +50,7 @@ class ProductCard extends StatelessWidget {
                       borderRadius: const BorderRadius.all(Radius.circular(7)),
                     ),
                     child: Padding(
-                        padding: EdgeInsets.only(left: 10, right: 10, top: 8),
+                        padding:const EdgeInsets.only(left: 10, right: 10, top: 8),
                         child: Image.asset(
                           imagePath,
                           fit: BoxFit.fill,

@@ -1,4 +1,6 @@
-import 'package:ecommerce_app/features/view/screens/shop/shop_page.dart';
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:ecommerce_app/features/view/screens/product/product_page.dart';
 import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:flutter/material.dart';
 import '../../../../../utils/colors/app_colors.dart';
@@ -66,7 +68,7 @@ class _NewArrivalsProductState extends State<NewArrivalsProduct> {
             GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ShopPage()));
+                    MaterialPageRoute(builder: (context) =>const ProductPage()));
               },
               child: Text(
                 "View all",

@@ -1,5 +1,8 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:ecommerce_app/features/view/global_component/buttons/floatingActionButton.dart';
 import 'package:ecommerce_app/features/view/screens/my_order/my_order_page.dart';
+import 'package:ecommerce_app/features/view/screens/shop_store/shop_store_page.dart';
 import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:ecommerce_app/utils/text_styles/text_styles.dart';
@@ -19,11 +22,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var token;
-  var user;
   @override
   void initState() {
-    currentScreen = widget.page == 2 ? CartPage() : HomePage();
+    currentScreen = widget.page == 2 ? const CartPage() : HomePage();
     currentTab = widget.page == 2 ? 2 : 0;
     super.initState();
   }
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> screens = [
     HomePage(),
     const WishListPage(),
-    const MyOrderPage(),
+    const ShopStorePage(),
     const ProfilePage(),
   ];
   final PageStorageBucket bucket = PageStorageBucket();
@@ -142,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         //     builder: (context) => token != null
                         //         ? CartScreen()
                         //         : LogInScreen()));
-                        currentScreen = const MyOrderPage();
+                        currentScreen = const ShopStorePage();
                         currentTab = 2;
                         // store.dispatch(LogoutUserAction("CartPage"));
                         // store.state.logoutUserData = null;
@@ -152,14 +153,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image(
-                            image: const AssetImage(AppAssets.compare),
+                            image: const AssetImage(AppAssets.shop),
                             width: 30,
                             height: 25,
                             color: currentTab == 2
                                 ? KColor.primary
                                 : KColor.gray223),
                         Text(
-                          "Orders",
+                          "Shops",
                           style: TextStyles.bodyText3.copyWith(
                             color: currentTab == 2
                                 ? KColor.primary

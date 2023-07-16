@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,7 +24,7 @@ class _ReportListState extends State<ReportList> {
         return Scaffold(
           backgroundColor: KColor.background,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(50),
+            preferredSize: const Size.fromHeight(50),
             child: KAppBar(
               checkTitle: true,
               title: 'Report List',

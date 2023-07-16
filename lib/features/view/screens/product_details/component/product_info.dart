@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:ecommerce_app/utils/extension/extension.dart';
@@ -141,7 +143,7 @@ class _ProductInfoState extends State<ProductInfo> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: KSize.getWidth(context, 260),
                         child: Text(
                           "Essentials Men's Short-Sleeve Crewneck T-Shirt",
@@ -163,7 +165,7 @@ class _ProductInfoState extends State<ProductInfo> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: KSize.getWidth(context, 200),
                         child: Row(
                           children: [

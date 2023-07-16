@@ -7,19 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../utils/colors/app_colors.dart';
-import '../../../../utils/text_styles/text_styles.dart';
 import '../../global_component/appBar/app_bar.dart';
 import '../../global_component/product_card.dart/product_card.dart';
 import '../../global_component/text_field_container/k_search_field.dart';
 
-class ShopPage extends StatefulWidget {
-  const ShopPage({Key? key}) : super(key: key);
+class ProductPage extends StatefulWidget {
+  const ProductPage({Key? key}) : super(key: key);
 
   @override
-  State<ShopPage> createState() => _ShopPageState();
+  State<ProductPage> createState() => _ProductPageState();
 }
 
-class _ShopPageState extends State<ShopPage> {
+class _ProductPageState extends State<ProductPage> {
   TextEditingController controller = TextEditingController();
   int pageNum = 1;
   bool isPageLoading = false;
@@ -32,10 +31,10 @@ class _ShopPageState extends State<ShopPage> {
         return Scaffold(
           backgroundColor: KColor.background,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(50),
+            preferredSize: const Size.fromHeight(50),
             child: KAppBar(
               checkTitle: true,
-              title: 'Shop',
+              title: 'Product All',
               leading: IconButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -112,7 +111,7 @@ class _ShopPageState extends State<ShopPage> {
                     Expanded(
                       child: SingleChildScrollView(
                         child: GridView.builder(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           physics: const ScrollPhysics(),
                           shrinkWrap: true,
                           gridDelegate:
@@ -159,37 +158,11 @@ class _ShopPageState extends State<ShopPage> {
               ],
             ),
           ),
-          endDrawer: SizedBox(
+          endDrawer: const SizedBox(
             child: KFilter(),
           ),
         );
       },
-    );
-  }
-
-  _categoryHeader(title, tap) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              title,
-              style: TextStyles.subTitle,
-            ),
-            InkWell(
-              onTap: tap,
-              child: Text(
-                'Reset',
-                style: TextStyles.bodyText3.copyWith(
-                  color: KColor.white,
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 16),
-      ],
     );
   }
 }

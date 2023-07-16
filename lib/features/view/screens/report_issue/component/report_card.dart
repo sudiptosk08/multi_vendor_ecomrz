@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:ecommerce_app/utils/helper/helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../../utils/colors/app_colors.dart';
@@ -148,7 +150,7 @@ class _ReportViewCardState extends State<ReportViewCard> {
                                   image: AssetImage(widget.image.toString())),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 3,
                           ),
                           Expanded(

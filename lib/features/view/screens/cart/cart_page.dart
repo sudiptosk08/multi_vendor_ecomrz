@@ -10,7 +10,7 @@ import '../checkout/checkout_page.dart';
 import 'component/cart_item_list.dart';
 
 class CartPage extends StatefulWidget {
-  CartPage({super.key});
+  const CartPage({super.key});
 
   @override
   State<CartPage> createState() => _CartPageState();

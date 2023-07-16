@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:ecommerce_app/features/view/screens/cart/cart_page.dart';
 import 'package:flutter/material.dart';
 import '../../../../utils/colors/app_colors.dart';

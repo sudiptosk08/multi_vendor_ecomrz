@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/view/screens/my_order/my_order_page.dart';
 import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:flutter/material.dart';
 import '../../../../utils/colors/app_colors.dart';
@@ -89,6 +90,16 @@ class _ProfilePageState extends State<ProfilePage> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                     ProfileCard(
+                      title: 'My Orders',
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const MyOrderPage()));
+                      },
+                    ),
                     ProfileCard(
                       title: 'Shipping Address',
                       onPressed: () {

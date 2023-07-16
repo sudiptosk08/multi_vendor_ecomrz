@@ -1,10 +1,14 @@
+// ignore_for_file: file_names
+
+import 'package:flutter/material.dart';
+
 import 'package:ecommerce_app/features/view/screens/product_details/product_details_page.dart';
 import 'package:ecommerce_app/utils/assets/app_assets.dart';
-import 'package:flutter/material.dart';
+
 import '../../../../../utils/colors/app_colors.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
 import '../../../global_component/product_card.dart/product_card.dart';
-import '../../shop/shop_page.dart';
+import '../../product/product_page.dart';
 
 class PopularProduct extends StatefulWidget {
   const PopularProduct({super.key});
@@ -67,7 +71,7 @@ class _PopularProductState extends State<PopularProduct> {
             GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ShopPage()));
+                    MaterialPageRoute(builder: (context) => const ProductPage()));
               },
               child: Text(
                 "View all",

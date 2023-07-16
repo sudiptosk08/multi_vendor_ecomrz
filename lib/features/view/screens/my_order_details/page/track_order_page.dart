@@ -1,8 +1,7 @@
-import 'package:ecommerce_app/utils/extension/extension.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// ignore_for_file: prefer_const_constructors, avoid_print
 
-import '../../../../../utils/assets/app_assets.dart';
+import 'package:flutter/material.dart';
+
 import '../../../../../utils/colors/app_colors.dart';
 import '../../../../../utils/text_styles/text_styles.dart';
 import '../../../global_component/appBar/app_bar.dart';
@@ -10,7 +9,7 @@ import '../component/stepper.dart';
 
 class TrackOrder extends StatefulWidget {
   // final OrderData orderData;
-  TrackOrder({
+  const TrackOrder({
     Key? key,
   }) : super(key: key);
 

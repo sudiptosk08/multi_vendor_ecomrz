@@ -121,7 +121,7 @@ class MyOrderCard extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => OrderDetailsPage(
+                          builder: (context) => const OrderDetailsPage(
                                 orderData: "laksjdf",
                               )));
                 },

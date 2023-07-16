@@ -20,7 +20,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
+        preferredSize:const Size.fromHeight(50),
         child: KAppBar(
           checkTitle: true,
           title: "Shipping Address",
@@ -39,7 +39,7 @@ class _ShippingAddressPageState extends State<ShippingAddressPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => AddShippingAddressPage()));
+                          builder: (context) =>const AddShippingAddressPage()));
                 },
                 icon: const Icon(
                   Icons.add_box_outlined,

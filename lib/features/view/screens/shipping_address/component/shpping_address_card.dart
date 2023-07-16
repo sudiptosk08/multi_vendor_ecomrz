@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/gestures.dart';
@@ -66,7 +68,7 @@ class _ShippingAddressCardState extends State<ShippingAddressCard> {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [Icon(Icons.delete)],
+          children:const [Icon(Icons.delete)],
         ),
       ),
       child: Container(

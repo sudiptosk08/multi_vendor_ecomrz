@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
+
 import 'package:ecommerce_app/features/view/global_component/drawer/drawer.dart';
 import 'package:ecommerce_app/features/view/screens/all_categories/all_categories_page.dart';
+import 'package:ecommerce_app/features/view/screens/home/component/shop_store_list.dart';
 import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:ecommerce_app/utils/helper/helper.dart';
@@ -115,6 +118,10 @@ class _HomePageState extends State<HomePage> {
                 height: 10,
               ),
               PopularProduct(),
+              const SizedBox(
+                height: 10,
+              ),
+              ShopStoreList(),
               const NewArrivalsProduct(),
               const SizedBox(
                 height: 30,

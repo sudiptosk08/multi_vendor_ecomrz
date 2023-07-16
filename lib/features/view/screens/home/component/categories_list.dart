@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/view/screens/product/product_page.dart';
 import 'package:ecommerce_app/utils/assets/app_assets.dart';
 import 'package:ecommerce_app/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -57,10 +58,7 @@ class _CategorySectionState extends State<CategorySection> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      // // setState(() => selectIndex = index);
-                      // ref.read(shopProvider.notifier).fetchShopProductList(
-                      //     groupId: categoryData[index].id, categoryId: "", str: "");
-                      // Navigator.pushNamed(context, '/shop');
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>const ProductPage(),));
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(3.0),
