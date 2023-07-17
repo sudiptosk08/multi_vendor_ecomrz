@@ -68,9 +68,9 @@ class _WishListCardState extends State<WishListCard> {
       },
       background: Container(
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-        margin: const EdgeInsets.only(bottom: 16),
+        margin: const EdgeInsets.only(top: 5, bottom: 8),
         decoration: const BoxDecoration(
-          color: KColor.primary,
+          color: KColor.errorRedText,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,

@@ -76,7 +76,7 @@ class _ShopStoreDetailsPageState extends State<ShopStoreDetailsPage>
                       padding: const EdgeInsets.only(top: 5, bottom: 5),
                       width: KSize.getWidth(context, 225),
                       height: KSize.getHeight(context, 100),
-                      child: Column(e
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -113,7 +113,7 @@ class _ShopStoreDetailsPageState extends State<ShopStoreDetailsPage>
                     widget.shopImage,
                     fit: BoxFit.fill,
                     width: KSize.getWidth(context, 120),
-                    height: KSize.getHeight(context, 150),
+                    height: KSize.getHeight(context, 130),
                   )),
             ]),
           ],

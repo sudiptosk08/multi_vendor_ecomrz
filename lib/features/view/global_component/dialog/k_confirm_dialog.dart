@@ -22,7 +22,7 @@ class KConfirmDialog extends StatelessWidget {
       insetPadding: const EdgeInsets.all(8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       child: SizedBox(
-        height: 250,
+        height: 180,
         width: double.infinity,
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 16.0),

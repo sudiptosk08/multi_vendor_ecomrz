@@ -81,6 +81,9 @@ class _ReportViewCardState extends State<ReportViewCard> {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                const SizedBox(
+                                  height: 3,
+                                ),
                                 Row(
                                   children: [
                                     Text(
@@ -157,7 +160,7 @@ class _ReportViewCardState extends State<ReportViewCard> {
                             child: Text(
                               widget.detailstxt!,
                               textAlign: TextAlign.justify,
-                              style: TextStyles.bodyText3
+                              style: TextStyles.bodyText1
                                   .copyWith(color: KColor.black54),
                               maxLines: 6,
                             ),

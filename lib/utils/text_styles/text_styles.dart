@@ -67,7 +67,7 @@ class TextStyles {
   static TextStyle bodyText1 = _rubik.copyWith(
     fontWeight: FontWeight.w500,
     color: KColor.black,
-    fontSize: 15,
+    fontSize: 14,
   );
 
   static TextStyle bodyText2 = _rubik.copyWith(

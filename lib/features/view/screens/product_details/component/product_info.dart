@@ -69,7 +69,7 @@ class _ProductInfoState extends State<ProductInfo> {
     return Column(
       children: [
         Container(
-          height: KSize.getHeight(context, 380),
+          height: KSize.getHeight(context, 347),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             color: Colors.grey[200],
@@ -81,26 +81,24 @@ class _ProductInfoState extends State<ProductInfo> {
               const SizedBox(width: 8),
               Column(
                 children: [
-                  Expanded(
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: context.screenWidth * 0.9,
-                      height: 250,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: KColor.white,
-                      ),
-                      padding: const EdgeInsets.all(8),
-                      child: PageView.builder(
-                          itemCount: productImageList.length,
-                          controller: _controller,
-                          itemBuilder: (ctx, position) {
-                            return Image.network(
-                              productImageList[position]['url'],
-                              fit: BoxFit.fill,
-                            );
-                          }),
+                  Container(
+                    alignment: Alignment.center,
+                    width: context.screenWidth * 0.9,
+                    height: context.screenHeight * 0.4,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: KColor.white,
                     ),
+                    padding: const EdgeInsets.all(8),
+                    child: PageView.builder(
+                        itemCount: productImageList.length,
+                        controller: _controller,
+                        itemBuilder: (ctx, position) {
+                          return Image.network(
+                            productImageList[position]['url'],
+                            fit: BoxFit.fill,
+                          );
+                        }),
                   ),
                   Row(
                     children: [
@@ -135,7 +133,6 @@ class _ProductInfoState extends State<ProductInfo> {
           ),
         ),
         SizedBox(
-          height: KSize.getHeight(context, 350),
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(left: 12, right: 12, bottom: 5),
